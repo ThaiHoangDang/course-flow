@@ -2,7 +2,7 @@ import Homepage from "./pages/Homepage";
 
 function App() {
   return (
-    <div className="App text-white">
+    <div className="App">
       <Homepage />
     </div>
   );
