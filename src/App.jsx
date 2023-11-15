@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/common/Homepage";
 import Course from "./pages/common/Course";
-import CoursesList from "./pages/common/Course";
-import Login from "./pages/common/Course";
+import CoursesList from "./pages/common/CoursesList";
+import Login from "./pages/common/Login";
 import NotFound from "./pages/common/NotFound";
 import Profile from "./pages/common/Profile";
 import Enrolment from "./pages/students/Enrolment";
