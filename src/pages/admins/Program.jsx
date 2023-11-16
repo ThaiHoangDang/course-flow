@@ -5,7 +5,7 @@ export default function Program() {
 	return (
 		<div>
 			<Header />
-			<div className="mx-8 lg:mx-32">
+			<div className="px-8 lg:px-32">
 				<h1 className="text-9xl text-center">This is Program page</h1>
 				{/* code in here */}
 			</div>

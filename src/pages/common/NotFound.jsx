@@ -5,7 +5,7 @@ export default function NotFound() {
 	return (
 		<div>
 			<Header />
-			<div className="mx-8 lg:mx-32">
+			<div className="px-8 lg:px-32">
 				<h1 className="text-9xl text-center">This is Not Found page</h1>
 				{/* code in here */}
 			</div>
