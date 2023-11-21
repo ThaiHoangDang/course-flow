@@ -21,6 +21,7 @@ export default function Header() {
 					<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-40">
 						<li><Link to="/profile" className="h-10 p-3">Profile</Link></li>
 						<li><Link to="/courses-list" className="h-10 p-3">Courses List</Link></li>
+						<li><Link to="/programs-list" className="h-10 p-3">Programs List</Link></li>
 						<li><Link className="h-10 p-3">Settings</Link></li>
 						<li><Link className="h-10 p-3">Logout</Link></li>
 					</ul>
