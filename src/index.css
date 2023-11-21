@@ -19,3 +19,7 @@ font-style: normal;
 font-family: "museo", serif;
 font-weight: 700;
 font-style: normal; */
+
+.border-1 {
+  border-width: 1px;
+}
