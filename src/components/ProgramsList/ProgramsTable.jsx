@@ -1,24 +1,24 @@
-export default function Table() {
+export default function ProgramsTable() {
   return (
     <div className="overflow-x-auto bg-base-100 border-1">
       <table className="table table-zebra">
         <thead className="shadow-sm font-bold">
           <tr>
-            <th>Course Code</th>
-            <th>Course Name</th>
-            <th>Favorite Color</th>
+            <th>Program Code</th>
+            <th>Program Name</th>
+            <th>Degree</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
+            <td>BP 162</td>
+            <td>Information Technology</td>
+            <td>Bachelor</td>
           </tr>
           <tr>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
+            <td>BP 222</td>
+            <td>Professional Communication</td>
+            <td>Bachelor</td>
           </tr>
           <tr>
             <td>Brice Swyre</td>
