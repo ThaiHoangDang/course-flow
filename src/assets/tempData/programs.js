@@ -1,4 +1,4 @@
-const programs = 
+export const programs = 
   [
     {
       "code": "BP162",
