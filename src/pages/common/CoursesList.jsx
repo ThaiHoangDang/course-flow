@@ -13,7 +13,7 @@ export default function CourseList() {
         <div className="basis-3/12 my-10 min-w-fit">
           <CoursesFilter />
         </div>
-        <div className="basis-9/12 my-10 shadow-sm">
+        <div className="basis-9/12 my-10">
           <CoursesTable />
         </div>
       </div>

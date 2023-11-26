@@ -13,7 +13,7 @@ export default function ProgramsList() {
         <div className="basis-3/12 my-10 min-w-fit">
           <ProgramsFilter />
         </div>
-        <div className="basis-9/12 my-10 shadow-sm">
+        <div className="basis-9/12 my-10">
           <ProgramsTable />
         </div>
 			</div>
