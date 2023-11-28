@@ -21,7 +21,7 @@ export default function Homepage() {
       </div>
       <div className="px-8 lg:px-32 bg-base-100" id="featuresSection">
         <div className="title text-center">
-          <h1 className="text-5xl font-bold">Features & Benefits</h1>
+          <h1 className="text-5xl font-bold">Features</h1>
           <p className="py-6">Everything you need.</p>
           <div className="flex flex-col lg:flex-row gap-10 mb-28">
             <div class="basis-3/12 card lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
@@ -60,13 +60,13 @@ export default function Homepage() {
           <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div class="lg:pr-8 lg:pt-4">
               <div class="lg:max-w-lg">
-                <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-                <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better workflow</h1>
+                <h2 class="text-base font-semibold leading-7 text-black">Lorem, ipsum dolor.</h2>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Benefits</h1>
                 <p class="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
                 <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                   <div class="relative pl-9">
                     <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clip-rule="evenodd" />
                       </svg>
                       Push to deploy.
@@ -75,7 +75,7 @@ export default function Homepage() {
                   </div>
                   <div class="relative pl-9">
                     <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
                       </svg>
                       SSL certificates.
@@ -84,7 +84,7 @@ export default function Homepage() {
                   </div>
                   <div class="relative pl-9">
                     <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-black" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path d="M4.632 3.533A2 2 0 016.577 2h6.846a2 2 0 011.945 1.533l1.976 8.234A3.489 3.489 0 0016 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234z" />
                         <path fill-rule="evenodd" d="M4 13a2 2 0 100 4h12a2 2 0 100-4H4zm11.24 2a.75.75 0 01.75-.75H16a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75V15zm-2.25-.75a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75h-.01z" clip-rule="evenodd" />
                       </svg>
@@ -106,9 +106,9 @@ export default function Homepage() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
             </div>
             <div className="timeline-start md:text-end mb-10">
-              <time className="font-mono italic">1984</time>
-              <div className="text-lg font-black">First Macintosh computer</div>
-              The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse.
+              <time className="font-mono italic">WEEK 1</time>
+              <div className="text-lg font-black">Lorem</div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore corporis amet eaque rerum veritatis laborum. Ducimus, eos molestias! Necessitatibus illum quo ex doloremque ducimus non porro mollitia asperiores, et iure amet laudantium natus similique deleniti ullam, placeat quae itaque neque?
             </div>
             <hr />
           </li>
@@ -118,9 +118,9 @@ export default function Homepage() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
             </div>
             <div className="timeline-end mb-10">
-              <time className="font-mono italic">1998</time>
-              <div className="text-lg font-black">iMac</div>
-              iMac is a family of all-in-one Mac desktop computers designed and built by Apple Inc. It has been the primary part of Apple's consumer desktop offerings since its debut in August 1998, and has evolved through seven distinct forms
+              <time className="font-mono italic">WEEK 4</time>
+              <div className="text-lg font-black">Lorem</div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet fugiat blanditiis perferendis tempora, inventore magni! Natus perspiciatis repellat quia quae doloremque ea ducimus aliquid pariatur eaque temporibus enim neque nesciunt porro quasi, nihil dolor quisquam ab ut repellendus, animi adipisci.
             </div>
             <hr />
           </li>
@@ -130,9 +130,9 @@ export default function Homepage() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
             </div>
             <div className="timeline-start md:text-end mb-10">
-              <time className="font-mono italic">2001</time>
-              <div className="text-lg font-black">iPod</div>
-              The iPod is a discontinued series of portable media players and multi-purpose mobile devices designed and marketed by Apple Inc. The first version was released on October 23, 2001, about 8+1⁄2 months after the Macintosh version of iTunes was released. Apple sold an estimated 450 million iPod products as of 2022. Apple discontinued the iPod product line on May 10, 2022. At over 20 years, the iPod brand is the oldest to be discontinued by Apple
+              <time className="font-mono italic">WEEK 5</time>
+              <div className="text-lg font-black">Lorem</div>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam provident ea deserunt recusandae corporis tempore temporibus rerum molestias nulla omnis iure consectetur nam cupiditate optio totam, debitis assumenda, tempora mollitia nemo facere amet voluptate. Nam sequi nostrum numquam voluptatum reiciendis.
             </div>
             <hr />
           </li>
@@ -142,9 +142,9 @@ export default function Homepage() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
             </div>
             <div className="timeline-end mb-10">
-              <time className="font-mono italic">2007</time>
-              <div className="text-lg font-black">iPhone</div>
-              iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone accounts for 15.6% of global smartphone market share
+              <time className="font-mono italic">WEEK 7</time>
+              <div className="text-lg font-black">Lorem </div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur praesentium ipsa aliquam ea est voluptate explicabo amet dignissimos, commodi eaque iste soluta vero mollitia atque distinctio, facilis sint sequi? Veritatis, modi! Ducimus veniam rerum vel suscipit. Eius repudiandae consequatur suscipit.
             </div>
             <hr />
           </li>
@@ -154,9 +154,9 @@ export default function Homepage() {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
             </div>
             <div className="timeline-start md:text-end mb-10">
-              <time className="font-mono italic">2015</time>
-              <div className="text-lg font-black">Apple Watch</div>
-              The Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness tracking, health-oriented capabilities, and wireless telecommunication, and integrates with iOS and other Apple products and services
+              <time className="font-mono italic">WEEK 12</time>
+              <div className="text-lg font-black">Lorem</div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur quibusdam delectus natus numquam culpa provident earum eos reiciendis odit, atque sed autem blanditiis facere necessitatibus recusandae nihil fuga assumenda nam impedit? Provident ipsa est architecto consectetur, odio cupiditate beatae!
             </div>
           </li>
         </ul>
@@ -168,8 +168,8 @@ export default function Homepage() {
           <div class="space-y-12 px-2 xl:px-16 mt-12">
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -177,7 +177,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Lorem ipsum dolor sit amet?</span>
+                  <span class="text-lg text-black font-bold">Lorem ipsum dolor sit amet?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
@@ -188,8 +188,8 @@ export default function Homepage() {
 
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -197,7 +197,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Consectetur adipisicing elit?</span>
+                  <span class="text-lg text-black font-bold">Consectetur adipisicing elit?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
@@ -208,8 +208,8 @@ export default function Homepage() {
 
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -217,7 +217,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Neque eos, dignissimos provident reiciendis debitis?</span>
+                  <span class="text-lg text-black font-bold">Neque eos, dignissimos provident reiciendis debitis?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
@@ -228,8 +228,8 @@ export default function Homepage() {
 
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -237,7 +237,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Repudiandae commodi perferendis et itaque?</span>
+                  <span class="text-lg text-black font-bold">Repudiandae commodi perferendis et itaque?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
@@ -248,8 +248,8 @@ export default function Homepage() {
 
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -257,7 +257,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Similique fugiat cumque?</span>
+                  <span class="text-lg text-black font-bold">Similique fugiat cumque?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
@@ -268,8 +268,8 @@ export default function Homepage() {
 
             <div class="mt-4 flex">
               <div>
-                <div class="flex items-center h-16 border-l-4 border-blue-600">
-                  <span class="text-4xl text-blue-600 px-4">Q.</span>
+                <div class="flex items-center h-16 border-l-4 border-black">
+                  <span class="text-4xl text-black px-4">Q.</span>
                 </div>
                 <div class="flex items-center h-16 border-l-4 border-gray-400">
                   <span class="text-4xl text-gray-400 px-4">A.</span>
@@ -277,7 +277,7 @@ export default function Homepage() {
               </div>
               <div>
                 <div class="flex items-center h-16">
-                  <span class="text-lg text-blue-600 font-bold">Impedit iusto vitae dolorum, nostrum fugit?</span>
+                  <span class="text-lg text-black font-bold">Impedit iusto vitae dolorum, nostrum fugit?</span>
                 </div>
                 <div class="flex items-center py-2">
                   <span class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</span>
