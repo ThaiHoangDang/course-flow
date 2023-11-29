@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
 	return (
-		<div>
-			<footer className="footer p-10 bg-base-200 text-base-content">
+		<footer className="border-t">
+			<div className="footer p-10 bg-base-200 text-base-content">
 				<nav>
 					<header className="footer-title">About</header> 
 					<Link className="link link-hover">About us</Link>
@@ -23,8 +23,8 @@ export default function Footer() {
 					<Link className="link link-hover">Privacy policy</Link>
 					<Link className="link link-hover">Cookie policy</Link>
 				</nav>
-			</footer> 
-			<footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+			</div> 
+			<div className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
 				<aside className="items-center grid-flow-col">
 					<p>Copyright © 2023 Team 08 Building IT Systems<br/>A course management system for students and staff</p>
 				</aside> 
@@ -35,7 +35,7 @@ export default function Footer() {
 						<Link><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></Link>
 					</div>
 				</nav>
-			</footer>
-		</div>
+			</div>
+		</footer>
 	);
 }

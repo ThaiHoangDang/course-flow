@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
 	return (
-		<div className="navbar shadow-sm flex gap-2">
+		<div className="navbar shadow-sm flex gap-2 h-20 border-b">
 			<div className="basis-2/12 md:basis-3/12">
 				<Link to="/" className="btn btn-ghost text-xl hidden md:flex">Course Flow</Link>
 				<Link to="/" className="btn btn-ghost text-xl md:hidden">CF</Link>
