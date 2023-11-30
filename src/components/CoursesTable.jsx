@@ -1,6 +1,5 @@
-import { courses } from "../../assets/tempData/courses";
 
-export default function CoursesTable() {
+export default function CoursesTable({courses}) {
   return (
     <div className="overflow-x-auto bg-base-100 border-1">
       <table className="table table-zebra">

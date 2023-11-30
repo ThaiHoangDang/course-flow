@@ -9,10 +9,10 @@ export default function Course() {
 	return (
 		<div>
 			<Header />
-			<CourseHeader code="CS 246" name={course["name"]} liked="70" difficulty="88" useful="50" />
+			<CourseHeader code="CS 246" name={course["name"]} />
 			<div className="px-8 lg:px-32 py-20">
 				<div className="md:flex gap-5">
-					<div className="w-full lg:w-72 mb-10">
+					<div className="w-full md:w-72 mb-10">
 						<div className="border sticky top-10">
 							<div className="h-16 bg-base-200 border-b">
 								<h2 className="text-xl p-5">About</h2>
