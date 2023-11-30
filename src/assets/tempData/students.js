@@ -1,4 +1,4 @@
-const students = 
+export const students = 
   [
     {
       "dob": "20/02/2003",
