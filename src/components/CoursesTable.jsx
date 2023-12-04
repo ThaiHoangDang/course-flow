@@ -7,7 +7,7 @@ export default function CoursesTable({courses}) {
           <tr>
             <th>Course Code</th>
             <th>Course Name</th>
-            <th>Course type</th>
+            <th>Course Type</th>
           </tr>
         </thead>
         <tbody>

@@ -54,9 +54,9 @@ export default function Course() {
 						</div>
 						<div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
 							<input type="checkbox" className="peer" /> 
-							<div className="collapse-title text-xl">
+							<h2 className="collapse-title text-xl">
 								Course Learning Outcomes
-							</div>
+							</h2>
 							<div className="collapse-content bg-white border-t"> 
 								<div className="my-4">
 									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum rem ea ipsum, accusamus molestiae tempora libero expedita saepe dolorem aliquid quisquam doloremque ab reiciendis? Vitae minus nam natus. Blanditiis, provident.</p><br />
@@ -66,9 +66,9 @@ export default function Course() {
 						</div>
 						<div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
 							<input type="checkbox" className="peer" /> 
-							<div className="collapse-title text-xl">
+							<h2 className="collapse-title text-xl">
 								Assessment Information
-							</div>
+							</h2>
 							<div className="collapse-content bg-white border-t"> 
 								<div className="my-4">
 									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum rem ea ipsum, accusamus molestiae tempora libero expedita saepe dolorem aliquid quisquam doloremque ab reiciendis? Vitae minus nam natus. Blanditiis, provident.</p><br />
