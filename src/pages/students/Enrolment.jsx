@@ -11,7 +11,7 @@ export default function Enrolment() {
 			<Header />
 			<SubHeader name="My Enrolment" />
       <div className="px-8 lg:px-32 md:flex gap-5">
-        <div className="w-full md:w-72 my-10 min-w-fit pt-10">
+        <div className="w-full md:w-72 my-10 pt-10">
           <InfoTable />
         </div>
         <div className="flex-1 my-10 overflow-x-auto">

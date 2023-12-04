@@ -15,133 +15,145 @@ export default function EnrolmentTable() {
           <tr>
             <td>CS 246</td>
             <td>Object Oriented Software Development</td>
-            <td>Completed</td>
+            <td><span className="bg-green-300 py-1 px-3 rounded-full">Completed</span></td>
             <td>90</td>
+          </tr>
+          <tr>
+            <td>CS 246</td>
+            <td>Object Oriented Software Development</td>
+            <td><span className="bg-green-300 py-1 px-3 rounded-full">Completed</span></td>
+            <td>HD</td>
           </tr>
           <tr>
             <td>CS 234</td>
             <td>Data Structure and Algorithms</td>
-            <td>In progress</td>
+            <td><span className="bg-yellow-300 py-1 px-3 rounded-full">In Progress</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 136</td>
             <td>Final Project</td>
-            <td>Opened</td>
+            <td><span className="bg-blue-300 py-1 px-3 rounded-full">Opened</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
           <tr>
             <td>CS 999</td>
             <td>Machine Learning</td>
-            <td>Closed</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td><span className="bg-red-300 py-1 px-3 rounded-full">Closed</span></td>
             <td>_</td>
           </tr>
         </tbody>

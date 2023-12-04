@@ -1,14 +1,30 @@
 export default function InfoTable() {
   return (
-    <div className="form-control shadow-sm border-1 px-5 py-5 sticky top-10">
-      <h2 className="font-bold">Student Information</h2>
-      <div>
-        <h3>Name</h3>
-        <p>Dang Thai Hoang</p>
+    <div className="border sticky top-10">
+      <div className="h-16 bg-base-200 border-b">
+        <h2 className="text-xl p-5">Student Information</h2>
       </div>
-      <div>
-        <h3>Degree</h3>
-        <p>Bachelor of Information Tech</p>
+      <div className="overflow-x-auto">
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>Student</td>
+              <td>Dang Thai Hoang</td>
+            </tr>
+            <tr>
+              <td>ID</td>
+              <td>s3927234</td>
+            </tr>
+            <tr>
+              <td>Program</td>
+              <td>Bachelor of Information Technology</td>
+            </tr>
+            <tr>
+              <td>GPA</td>
+              <td>1.0/4.0</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
