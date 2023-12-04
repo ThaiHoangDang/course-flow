@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CourseHeader from "../../components/Course/CourseHeader";
+import CourseAbout from "../../components/Course/CourseAbout";
 
 import { courses } from "../../assets/tempData/courses";
 let course = courses[0];
@@ -13,33 +14,7 @@ export default function Course() {
 			<div className="px-8 lg:px-32 py-20">
 				<div className="md:flex gap-5">
 					<div className="w-full md:w-72 mb-10">
-						<div className="border sticky top-10">
-							<div className="h-16 bg-base-200 border-b">
-								<h2 className="text-xl p-5">About</h2>
-							</div>
-							<div className="overflow-x-auto">
-								<table className="table">
-									<tbody>
-										<tr>
-											<td>Code</td>
-											<td>CS 246</td>
-										</tr>
-										<tr>
-											<td>Name</td>
-											<td>Foundations of Public Relations</td>
-										</tr>
-										<tr>
-											<td>Credits</td>
-											<td>12</td>
-										</tr>
-										<tr>
-											<td>Prerequites</td>
-											<td>CS 136</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+						<CourseAbout />
 					</div>
 					<div className="mb-10 flex-1">
 						<div className="border">
