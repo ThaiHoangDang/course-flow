@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import SubHeader from "../../components/SubHeader";
 import InfoTable from "../../components/Enrolment/InfoTable";
 import EnrolmentTable from "../../components/Enrolment/EnrolmentTable";
+import GoUp from "../../components/GoUp";
 
 
 export default function Enrolment() {
@@ -33,6 +34,7 @@ export default function Enrolment() {
           </div>
         </div>
       </div>
+      <GoUp />
 			<Footer />
 		</div>
 	);
