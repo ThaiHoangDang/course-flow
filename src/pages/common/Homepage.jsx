@@ -6,15 +6,15 @@ export default function Homepage() {
   return (
     <div>
       <Header />
-      <div className="px-8 lg:px-32 bg-base-100" id="heroSection">
-        <div className="min-h-screen flex">
-          <div className="lg:flex gap-10 max-w-7xl m-auto">
-            <div className="basis-5/12 my-14 lg:my-32">
+      <div className="px-8 lg:px-32 bg-base-100">
+        <div className="md:min-h-screen flex">
+          <div className="lg:flex gap-20 max-w-7xl m-auto">
+            <div className="basis-5/12 my-20 lg:my-32">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">Discover, Learn, Achieve: Your Course Awaits!</h1>
               <p className="text-sm md:text-md py-6 ">Explore courses and instructors with confidence. Our Course Registration System offers insightful reviews for smarter academic choices. Register now to curate your path to success!</p>
               <button className="btn btn-lg btn-outline rounded-full">Explore Courses</button>
             </div>
-            <div className="basis-7/12 my-14 lg:my-32" >
+            <div className="basis-7/12 my-20 lg:my-32" >
               <img src="https://images.unsplash.com/photo-1602734666440-b57ff6b304bd?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="object-cover rounded-md  shadow-2xl " alt="hero" />
             </div>
           </div>
