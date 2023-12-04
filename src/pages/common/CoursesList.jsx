@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import CoursesTable from "../../components/CoursesTable";
 import CoursesFilter from "../../components/CoursesList/CoursesFilter";
 import SubHeader from "../../components/SubHeader";
+import GoUp from "../../components/GoUp";
 
 import { courses } from "../../assets/tempData/courses";
 
@@ -19,6 +20,7 @@ export default function CourseList() {
           <CoursesTable courses={courses} />
         </div>
       </div>
+      <GoUp />
       <Footer />
     </div>
   );

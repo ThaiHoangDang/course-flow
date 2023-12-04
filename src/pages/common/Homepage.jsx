@@ -1,19 +1,20 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import GoUp from "../../components/GoUp";
 
 export default function Homepage() {
   return (
     <div>
       <Header />
       <div className="px-8 lg:px-32 bg-base-100" id="heroSection">
-        <div className="hero min-h-screen items-center">
-          <div className="hero-content flex flex-col lg:flex-row gap-10 mb-28">
-            <div className="basis-5/12">
-              <h1 className="text-6xl font-bold">Discover, Learn, Achieve: Your Course Awaits!</h1>
-              <p className="py-6 ">Explore courses and instructors with confidence. Our Course Registration System offers insightful reviews for smarter academic choices. Register now to curate your path to success!</p>
-              <button className="btn btn-lg btn-outline rounded-full">Get Started</button>
+        <div className="min-h-screen flex">
+          <div className="lg:flex gap-10 max-w-7xl m-auto">
+            <div className="basis-5/12 my-14 lg:my-32">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">Discover, Learn, Achieve: Your Course Awaits!</h1>
+              <p className="text-sm md:text-md py-6 ">Explore courses and instructors with confidence. Our Course Registration System offers insightful reviews for smarter academic choices. Register now to curate your path to success!</p>
+              <button className="btn btn-lg btn-outline rounded-full">Explore Courses</button>
             </div>
-            <div className="basis-7/12" >
+            <div className="basis-7/12 my-14 lg:my-32" >
               <img src="https://images.unsplash.com/photo-1602734666440-b57ff6b304bd?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="object-cover rounded-md  shadow-2xl " alt="hero" />
             </div>
           </div>
@@ -21,7 +22,7 @@ export default function Homepage() {
       </div>
       <div className="px-8 lg:px-32 bg-base-100" id="featuresSection">
         <div className="title text-center">
-          <h1 className="text-5xl font-bold">Features</h1>
+          <h1 className="text-4xl lg:text-6xl font-bold">Features</h1>
           <p className="py-6">Everything you need.</p>
           <div className="flex flex-col items-center justify-center lg:flex-row gap-10 mb-28">
             <div class="card w-8/12 lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
@@ -61,7 +62,7 @@ export default function Homepage() {
             <div class="lg:pr-8 lg:pt-4">
               <div class="lg:max-w-lg">
                 <h2 class="text-base leading-7 text-black">Unlocking Advantages.</h2>
-                <h1 class="mt-2 text-6xl font-bold text-gray-900 sm:text-4xl">Benefits</h1>
+                <h1 class="mt-2 text-4xl lg:text-6xl font-bold text-gray-900 sm:text-4xl">Benefits</h1>
                 <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                   <div class="relative pl-9">
                     <dt class="inline font-semibold text-gray-900">
@@ -90,10 +91,6 @@ export default function Homepage() {
                       Data-Driven Decision-Making and Planning.
                     </dt>
                     <dd class="inline">   Empowers administrators with insightful analytics, aiding in strategic decision-making. The system's data-driven approach allows for better planning, adapting to changing academic needs, and maintaining competitiveness in the educational landscape.
-
-
-
-
                     </dd>
                   </div>
                 </dl>
@@ -291,7 +288,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-
+      <GoUp />
       <Footer />
     </div>
   );

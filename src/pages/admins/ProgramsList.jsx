@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import SubHeader from "../../components/SubHeader";
 import ProgramsFilter from "../../components/ProgramsList/ProgramsFilter";
 import ProgramsTable from "../../components/ProgramsList/ProgramsTable";
+import GoUp from "../../components/GoUp";
 
 export default function ProgramsList() {
 	return (
@@ -17,6 +18,7 @@ export default function ProgramsList() {
           <ProgramsTable />
         </div>
 			</div>
+			<GoUp />
 			<Footer />
 		</div>
 	);
