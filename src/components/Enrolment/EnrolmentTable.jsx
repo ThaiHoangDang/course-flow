@@ -36,6 +36,114 @@ export default function EnrolmentTable() {
             <td>Closed</td>
             <td>_</td>
           </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
+          <tr>
+            <td>CS 999</td>
+            <td>Machine Learning</td>
+            <td>Closed</td>
+            <td>_</td>
+          </tr>
         </tbody>
       </table>
     </div>
