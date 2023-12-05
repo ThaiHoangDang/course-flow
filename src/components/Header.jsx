@@ -24,8 +24,8 @@ export default function Header() {
 						<li><Link to="/course" className="h-10 p-3">Course</Link></li>
 						<li><Link to="/programs-list" className="h-10 p-3">Programs List</Link></li>
 						<li><Link to="/program" className="h-10 p-3">Program</Link></li>
-						<li><Link className="h-10 p-3">Settings</Link></li>
-						<li><Link className="h-10 p-3">Logout</Link></li>
+						<li><Link to="/enrolment" className="h-10 p-3">Enrolment</Link></li>
+						<li><Link to="/login" className="h-10 p-3">Login</Link></li>
 					</ul>
 				</div>
 			</div>
