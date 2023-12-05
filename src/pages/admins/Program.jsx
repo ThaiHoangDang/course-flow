@@ -103,7 +103,7 @@ export default function Program() {
             </div>
             <div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title text-xl">Courses list</div>
+              <h2 className="collapse-title text-xl">Courses list</h2>
               <div className="collapse-content bg-white border-t overflow-x-auto">
 								<div className="w-full h-full py-4">
                 	<CoursesTable courses={courses} />
@@ -112,7 +112,7 @@ export default function Program() {
             </div>
             <div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title text-xl">Students list</div>
+              <h2 className="collapse-title text-xl">Students list</h2>
               <div className="collapse-content bg-white border-t">
                 <div className="my-4">
 									<StudentTable students={students} />
