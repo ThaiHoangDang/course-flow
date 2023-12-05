@@ -1,8 +1,10 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import CoursesTable from "../../components/CoursesList/CoursesTable";
+import CoursesTable from "../../components/CoursesTable";
 import CoursesFilter from "../../components/CoursesList/CoursesFilter";
 import SubHeader from "../../components/SubHeader";
+
+import { courses } from "../../assets/tempData/courses";
 
 export default function CourseList() {
   return (
@@ -10,11 +12,11 @@ export default function CourseList() {
       <Header />
       <SubHeader name="List of all courses"/>
       <div className="px-8 lg:px-32 md:flex gap-5">
-        <div className="basis-3/12 my-10 min-w-fit">
+        <div className="w-full md:w-72 my-10 min-w-fit">
           <CoursesFilter />
         </div>
-        <div className="basis-9/12 my-10 shadow-sm">
-          <CoursesTable />
+        <div className="flex-1 my-10">
+          <CoursesTable courses={courses} />
         </div>
       </div>
       <Footer />
