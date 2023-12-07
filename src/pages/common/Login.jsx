@@ -1,5 +1,21 @@
+import React, { useState } from 'react';
+import { signIn } from '../../firebase/authentication';
 
 export default function Login() {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setError('');
+		try {
+			await signIn(email, password);
+			// Handle successful sign-in, e.g., redirecting to a dashboard
+		} catch (error) {
+			setError(error.message);
+		}
+	};
 	return (
 		<div>
 			<div className="">
@@ -14,7 +30,7 @@ export default function Login() {
 					{/* Right: Login Form */}
 					<div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
 						<h1 className="text-4xl font-semibold mb-4">Login</h1>
-						<form action="#" method="POST">
+						<form onSubmit={handleSubmit}>
 							{/* Username Input */}
 							<div className="mb-4">
 								<label htmlFor="username" className="block text-gray-600">
@@ -24,6 +40,8 @@ export default function Login() {
 									type="text"
 									id="username"
 									name="username"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 									className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
 									autoComplete="off"
 								/>
@@ -36,7 +54,8 @@ export default function Login() {
 								<input
 									type="password"
 									id="password"
-									name="password"
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
 									className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
 									autoComplete="off"
 								/>
