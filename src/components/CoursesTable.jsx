@@ -12,7 +12,7 @@ export default function CoursesTable({courses}) {
         </thead>
         <tbody>
           {courses.map((course) => (
-            <tr>
+            <tr key={course["code"]}>
               <td>{course["code"]}</td>
               <td>{course["name"]}</td>
               <td>{course["type"]}</td>
