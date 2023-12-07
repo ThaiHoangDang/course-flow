@@ -1,6 +1,11 @@
-import { programs } from "../../assets/tempData/programs";
+import { useNavigate } from "react-router-dom";
 
-export default function ProgramsTable() {
+export default function ProgramsTable({programs}) {
+  const navigate = useNavigate();
+  const handleRowClick = (id) => {
+    navigate(`/program/${id}`);
+  }  
+
   return (
     <div className="overflow-x-auto bg-base-100 border-1">
       <table className="table table-zebra">
@@ -13,7 +18,7 @@ export default function ProgramsTable() {
         </thead>
         <tbody>
           { programs.map((program) => (
-            <tr>
+            <tr className="hover:underline hover:cursor-pointer" key={program["code"]} onClick={()=> handleRowClick(program["id"])}>
               <td>{program["code"]}</td>
               <td>{program["name"]}</td>
               <td>{program["type"]}</td>
