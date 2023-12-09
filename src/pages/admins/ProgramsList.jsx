@@ -5,6 +5,8 @@ import ProgramsFilter from "../../components/ProgramsList/ProgramsFilter";
 import ProgramsTable from "../../components/ProgramsList/ProgramsTable";
 import GoUp from "../../components/GoUp";
 
+import { programs } from "../../assets/tempData/programs";
+
 export default function ProgramsList() {
 	return (
 		<div>
@@ -15,7 +17,7 @@ export default function ProgramsList() {
           <ProgramsFilter />
         </div>
         <div className="flex-1 my-10">
-          <ProgramsTable />
+          <ProgramsTable programs={programs}/>
         </div>
 			</div>
 			<GoUp />
