@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function CoursesTable({courses}) {
+  
   const navigate = useNavigate();
   const handleRowClick = (id) => {
     navigate(`/course/${id}`);
@@ -14,15 +15,17 @@ export default function CoursesTable({courses}) {
           <tr>
             <th>Course Code</th>
             <th>Course Name</th>
-            <th>Course Type</th>
+            <th>Credits</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {courses.map((course) => (
+          {courses != null && courses.map((course) => (
             <tr className="hover:underline hover:cursor-pointer" key={course["code"]} onClick={()=> handleRowClick(course["id"])}>
                 <td>{course["code"]}</td>
                 <td>{course["name"]}</td>
-                <td>{course["type"]}</td>
+                <td>{course["credits"]}</td>
+                <td>{course["status"] === true ? "Opened" : "Closed"}</td>
             </tr>
           ))}
         </tbody>
