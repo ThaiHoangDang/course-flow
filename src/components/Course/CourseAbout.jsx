@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CourseAbout({code, name, credits, prerequites}) {
+export default function CourseAbout({code, name, credits, prerequites, status}) {
 
   return (
     <div className="border sticky top-10">
@@ -25,15 +25,24 @@ export default function CourseAbout({code, name, credits, prerequites}) {
             <tr>
               <td>Prerequites</td>
               <td>
-                {prerequites && prerequites.length > 0 && prerequites.map((item, index) => (
-                  <div className="hover:underline">
-                    <Link to={`/course/${item["id"]}`} key={index}>
-                      {item["code"]}
-                    </Link>
-                  </div>
-                ))}
+                {
+                  prerequites && prerequites.length > 0
+                    ? prerequites.map((item, index) => (
+                        <div className="hover:underline" key={index}>
+                          <Link to={`/course/${item.id}`}>
+                            {item.code}
+                          </Link>
+                        </div>
+                      ))
+                    : "None"
+                }
               </td>
             </tr>
+              <td>Status</td>
+              <td>{status === true 
+                ? <span className="text-green-600">Opened</span>
+                : <span className="text-red-600">Closed</span>}
+              </td>
           </tbody>
         </table>
       </div>

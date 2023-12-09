@@ -28,7 +28,10 @@ export default function CoursesTable({courses, filterText, openedOnly = false}) 
                 <td>{course["code"]}</td>
                 <td>{course["name"]}</td>
                 <td>{course["credits"]}</td>
-                <td>{course["status"] === true ? "Opened" : "Closed"}</td>
+                <td>{course["status"] === true 
+                  ? <span className="text-green-600">Opened</span>
+                  : <span className="text-red-600">Closed</span>}
+                </td>
               </tr>
             ); 
           })}
