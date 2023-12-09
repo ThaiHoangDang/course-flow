@@ -1,20 +1,50 @@
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CourseHeader from "../../components/Course/CourseHeader";
 import CourseAbout from "../../components/Course/CourseAbout";
-
-import { courses } from "../../assets/tempData/courses";
-let course = courses[0];
+import { getCourse } from "../../firebase/courses";
 
 export default function Course() {
+	const [course, setCourse] = useState(Object);
+	const { id } = useParams();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+    async function fetchCourse() {
+			const courseInfo = await getCourse(id);
+			if (courseInfo == null) navigate(`/404`);
+
+			if (courseInfo["prerequisites"] != null && courseInfo["prerequisites"].length > 0) {
+				const prerequisitesData = await Promise.all(
+					courseInfo["prerequisites"].map(async (id) => {
+						const prerequisite = await getCourse(id);
+            if (prerequisite !== null) {
+              return prerequisite;
+            } else {
+              return null;
+            }
+					})
+				);
+				courseInfo["prerequisites"] = prerequisitesData;
+			}
+
+      setCourse(courseInfo);
+    }
+
+    fetchCourse();
+  }, [id]);
+
 	return (
 		<div>
 			<Header />
-			<CourseHeader code="CS 246" name={course["name"]} />
+			<CourseHeader code={course["code"]} name={course["name"]} />
 			<div className="px-8 lg:px-32 py-20">
 				<div className="md:flex gap-5">
 					<div className="w-full md:w-72 mb-10">
-						<CourseAbout />
+						<CourseAbout code={course["code"]} name={course["name"]} credits={course["credits"]} prerequites={course["prerequisites"]} />
 					</div>
 					<div className="mb-10 flex-1">
 						<div className="border">
@@ -22,9 +52,7 @@ export default function Course() {
 								<h2 className="text-xl p-5">Course Description</h2>
 							</div>
 							<div className="p-5">
-							<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex voluptatibus, natus tempora rem quis laboriosam inventore aut nihil doloribus sed ullam numquam, voluptatem voluptas minus delectus non aliquid debitis blanditiis?</p><br />
-								<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex voluptatibus, natus tempora rem quis laboriosam inventore aut nihil doloribus sed ullam numquam, voluptatem voluptas minus delectus non aliquid debitis blanditiis?</p><br />
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nihil. Cumque autem quas ipsum quasi, doloribus accusamus hic, corrupti deserunt soluta sunt, ex ad ipsam. Distinctio, earum nobis! Ut, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, earum reprehenderit quis eum molestiae animi corrupti beatae dicta! Labore porro ipsa tempore iure nulla nostrum provident cum dignissimos reprehenderit minima!</p>
+								{course["description"]}
 							</div>
 						</div>
 						<div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
