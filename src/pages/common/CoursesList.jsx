@@ -11,7 +11,7 @@ import { getAllCourses } from "../../firebase/courses";
 
 export default function CourseList() {
   const [courses, setCourses] = useState([]);
-  const [filterText, setFilterText] = useState("");
+  const [filterText, setFilterText] = useState('');
   const [openedOnly, setOpenedOnly] = useState(false);
 
   useEffect(() => {
@@ -27,10 +27,10 @@ export default function CourseList() {
       <SubHeader name="List of all courses"/>
       <div className="px-8 lg:px-32 md:flex gap-5">
         <div className="w-full md:w-72 my-10 min-w-fit">
-          <CoursesFilter filterText={filterText} onFilterTextChange={setFilterText} onOpenedOnlyChange={setOpenedOnly}/>
+          <CoursesFilter filterText={filterText} onFilterTextChange={setFilterText} onOpenedOnlyChange={setOpenedOnly} openedOnly={openedOnly}/>
         </div>
         <div className="flex-1 my-10">
-          <CoursesTable courses={courses} />
+          <CoursesTable courses={courses} filterText={filterText} openedOnly={openedOnly}/>
         </div>
       </div>
       <GoUp />

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-export default function CoursesTable({courses}) {
+export default function CoursesTable({courses, filterText, openedOnly = false}) {
   
   const navigate = useNavigate();
   const handleRowClick = (id) => {
@@ -20,14 +20,18 @@ export default function CoursesTable({courses}) {
           </tr>
         </thead>
         <tbody>
-          {courses != null && courses.map((course) => (
-            <tr className="hover:underline hover:cursor-pointer" key={course["code"]} onClick={()=> handleRowClick(course["id"])}>
+          {courses != null && courses.map((course) => {
+            if (filterText !== "" && (! course["code"].toLowerCase().includes(filterText.toLowerCase())) && (! course["name"].toLowerCase().includes(filterText.toLowerCase()))) return null;
+            if (openedOnly && course["status"] === false) return null;
+            return (
+              <tr className="hover:underline hover:cursor-pointer" key={course["code"]} onClick={()=> handleRowClick(course["id"])}>
                 <td>{course["code"]}</td>
                 <td>{course["name"]}</td>
                 <td>{course["credits"]}</td>
                 <td>{course["status"] === true ? "Opened" : "Closed"}</td>
-            </tr>
-          ))}
+              </tr>
+            ); 
+          })}
         </tbody>
       </table>
     </div>
