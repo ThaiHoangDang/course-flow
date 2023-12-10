@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { students } from "../../assets/tempData/students";
+// import Header from "../../components/Header";
+// import Footer from "../../components/Footer";
+// import { students } from "../../assets/tempData/students";
 
 export default function Profile() {
 	return (
 		<div>
-			<Header />
+			{/* <Header />
 			<div className="px-8 lg:px-32">
 				<main className="py-16 lg:py-20">
 					<div>
@@ -118,7 +118,7 @@ export default function Profile() {
 
 
 			</div>
-			<Footer />
+			<Footer /> */}
 		</div>
 	
 	);
