@@ -1,5 +1,33 @@
+import React, { useState } from 'react';
+import { signIn, ProtectedRoute } from '../../firebase/authentication';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+	const navigate = useNavigate();
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setError('');
+		try {
+			await signIn(email, password);
+			if (ProtectedRoute())
+				navigate('/');
+			// Handle successful sign-in, e.g., redirecting to a dashboard
+		} catch (error) {
+			if (error.code === 'auth/invalid-email' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-login-credentials') {
+				setError("Incorrect username or password");
+			}
+			else if (error.code === 'auth/user-not-found') {
+				setError("Couldn't find your CourseFlow Account"); // For other types of errors, display the default message
+			}
+			else {
+				setError(error.code)
+			}
+		}
+	};
 	return (
 		<div>
 			<div className="">
@@ -14,7 +42,12 @@ export default function Login() {
 					{/* Right: Login Form */}
 					<div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
 						<h1 className="text-4xl font-semibold mb-4">Login</h1>
-						<form action="#" method="POST">
+						{error && (
+							<div className="mb-4">
+								<span className="text-red-500">{error}</span>
+							</div>
+						)}
+						<form onSubmit={handleSubmit}>
 							{/* Username Input */}
 							<div className="mb-4">
 								<label htmlFor="username" className="block text-gray-600">
@@ -24,7 +57,9 @@ export default function Login() {
 									type="text"
 									id="username"
 									name="username"
-									className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
+									className="w-full border bg-base-100 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
 									autoComplete="off"
 								/>
 							</div>
@@ -36,8 +71,9 @@ export default function Login() {
 								<input
 									type="password"
 									id="password"
-									name="password"
-									className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
+									className="w-full border bg-base-100 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
 									autoComplete="off"
 								/>
 							</div>
