@@ -34,7 +34,7 @@ export const onAuthStateChange = (callback) => {
     });
 };
 
-// Protected Route function
+// Protected Route function  for students
 export const ProtectedRoute = () => {
     const userID = Cookies.get("userID");
     if (!userID) {
@@ -42,4 +42,6 @@ export const ProtectedRoute = () => {
         return false;
     }
     return true
-};  
+};
+
+// Protected Route function for admins
