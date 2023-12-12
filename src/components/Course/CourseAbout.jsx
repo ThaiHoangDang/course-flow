@@ -1,4 +1,7 @@
-export default function CourseAbout() {
+import { Link } from "react-router-dom";
+
+export default function CourseAbout({code, name, credits, prerequites, status}) {
+
   return (
     <div className="border sticky top-10">
       <div className="h-16 bg-base-200 border-b">
@@ -9,20 +12,37 @@ export default function CourseAbout() {
           <tbody>
             <tr>
               <td>Code</td>
-              <td>CS 246</td>
+              <td>{code}</td>
             </tr>
             <tr>
               <td>Name</td>
-              <td>Foundations of Public Relations</td>
+              <td>{name}</td>
             </tr>
             <tr>
               <td>Credits</td>
-              <td>12</td>
+              <td>{credits}</td>
             </tr>
             <tr>
               <td>Prerequites</td>
-              <td>CS 136</td>
+              <td>
+                {
+                  prerequites && prerequites.length > 0
+                    ? prerequites.map((item, index) => (
+                        <div className="hover:underline" key={index}>
+                          <Link to={`/course/${item.id}`}>
+                            {item.code}
+                          </Link>
+                        </div>
+                      ))
+                    : "None"
+                }
+              </td>
             </tr>
+              <td>Status</td>
+              <td>{status === true 
+                ? <span className="text-green-600">Opened</span>
+                : <span className="text-red-600">Closed</span>}
+              </td>
           </tbody>
         </table>
       </div>

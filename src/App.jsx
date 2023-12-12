@@ -12,14 +12,13 @@ import Program from "./pages/admins/Program";
 import ProgramsList from "./pages/admins/ProgramsList";
 
 
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
-          <Route path="/course" element={<Course />} />
+          <Route path="/course/:id" element={<Course />}/>
           <Route path="/courses-list" element={<CoursesList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
