@@ -9,9 +9,10 @@ import StudentTable from "../../components/StudentsTable";
 import ProgramAbout from "../../components/Program/ProgramAbout";
 
 import { getProgram } from "../../firebase/programs";
+import { getCourse } from "../../firebase/courses";
 
-import { courses } from "../../assets/tempData/courses";
 import { students } from "../../assets/tempData/students";
+
 
 export default function Program() {
   const [program, setProgram] = useState(Object);
@@ -23,11 +24,23 @@ export default function Program() {
 
   useEffect(() => {
     async function fetchProgram() {
-      const programInfo = await getProgram(id);
-      if (programInfo == null) navigate(`/404`);
+      let programInfo = await getProgram(id);
+      if (programInfo == null) {
+        navigate(`/404`);
+        return; // Make sure to return here to avoid executing the rest of the code
+      }
+  
+      const program_map = await Promise.all(programInfo["program_map"].map(async (course) => {
+        const courseInfo = await getCourse(course["course_id"]);
+        return {...course, ...courseInfo};
+      }));
+  
+      await delete programInfo["program_map"];
+      programInfo = { ...programInfo, program_map };
+
       setProgram(programInfo);
     }
-
+  
     fetchProgram();
   }, [id, navigate]);
 
@@ -58,7 +71,7 @@ export default function Program() {
               <h2 className="collapse-title text-xl">Courses list</h2>
               <div className="collapse-content bg-white border-t overflow-x-auto">
                 <div className="w-full h-full py-4">
-                  <ProgramCoursesTable courses={courses} filterCourses={filterCourses} />
+                  <ProgramCoursesTable courses={program["program_map"]} filterCourses={filterCourses} />
                 </div>
               </div>
             </div>

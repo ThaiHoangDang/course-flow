@@ -22,7 +22,6 @@ export default function Header() {
 							<svg fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 						</button>
 						<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-40">
-							<li><Link to="/program" className="h-10 p-3">Program</Link></li>
 							<li><Link to="/enrolment" className="h-10 p-3">My Enrolment</Link></li>
 							<li><Link to="/login" className="h-10 p-3">Login</Link></li>
 						</ul>

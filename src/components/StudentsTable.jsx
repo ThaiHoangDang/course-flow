@@ -9,7 +9,6 @@ export default function StudentsTable({students, filterStudents}) {
           <tr>
             <th>Student ID</th>
             <th>Name</th>
-            <th>Program</th>
           </tr>
         </thead>
         <tbody>
@@ -19,7 +18,6 @@ export default function StudentsTable({students, filterStudents}) {
               <tr key={student["sid"]}>
                 <td>{student["sid"]}</td>
                 <td>{student["name"]}</td>
-                <td>{student["programID"]}</td>
               </tr>
             );
           })}
