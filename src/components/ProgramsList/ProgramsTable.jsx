@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function ProgramsTable({programs, filterText}) {
+export default function ProgramsTable({programs, filterText, bachelor, honours, master}) {
   const navigate = useNavigate();
   const handleRowClick = (id) => {
     navigate(`/program/${id}`);
@@ -19,6 +19,9 @@ export default function ProgramsTable({programs, filterText}) {
         <tbody>
           { programs != null && programs.map((program) => {
             if (filterText !== "" && (! program["code"].toLowerCase().includes(filterText.toLowerCase())) && (! program["name"].toLowerCase().includes(filterText.toLowerCase()))) return null;
+            if (program["type"] === "Bachelor" && (! bachelor)) return null;
+            if (program["type"] === "Honours" && (! honours)) return null;
+            if (program["type"] === "Master" && (! master)) return null;
 
             return (
               <tr className="hover:underline hover:cursor-pointer" key={program["code"]} onClick={()=> handleRowClick(program["id"])}>

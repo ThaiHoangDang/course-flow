@@ -25,7 +25,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/enrolment" element={<Enrolment />} />
           <Route path="/grade-calculator" element={<GradeCalculator />} />
-          <Route path="/program" element={<Program />} />
+          <Route path="/program/:id" element={<Program />} />
           <Route path="/programs-list" element={<ProgramsList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

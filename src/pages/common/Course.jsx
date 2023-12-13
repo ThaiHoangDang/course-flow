@@ -35,7 +35,7 @@ export default function Course() {
     }
 
     fetchCourse();
-  }, [id]);
+  }, [id, navigate]);
 
 	return (
 		<div>

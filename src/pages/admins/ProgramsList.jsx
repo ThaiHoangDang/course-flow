@@ -12,6 +12,10 @@ import { getAllPrograms } from "../../firebase/programs";
 
 export default function ProgramsList() {
   const [programs, setPrograms] = useState([]);
+	const [bachelor, setBachelor] = useState(true);
+	const [honours, setHonours] = useState(true);
+	const [master, setMaster] = useState(true);
+	
   const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
@@ -27,10 +31,10 @@ export default function ProgramsList() {
 			<SubHeader name="List of all programs" />
 			<div className="px-8 lg:px-32 md:flex gap-5">
         <div className="w-full md:w-72 my-10 min-w-fit">
-          <ProgramsFilter filterText={filterText} onFilterTextChange={setFilterText} />
+          <ProgramsFilter filterText={filterText} onFilterTextChange={setFilterText} bachelor={bachelor} onBachelorChange={setBachelor} honours={honours} onHonoursChange={setHonours} master={master} onMasterChange={setMaster} />
         </div>
         <div className="flex-1 my-10">
-          <ProgramsTable programs={programs} filterText={filterText}/>
+          <ProgramsTable programs={programs} filterText={filterText} bachelor={bachelor} honours={honours} master={master} />
         </div>
 			</div>
 			<GoUp />
