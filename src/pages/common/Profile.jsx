@@ -3,9 +3,9 @@
 // import { students } from "../../assets/tempData/students";
 
 export default function Profile() {
-	return (
-		<div>
-			{/* <Header />
+  return (
+    <div>
+      {/* <Header />
 			<div className="px-8 lg:px-32">
 				<main className="py-16 lg:py-20">
 					<div>
@@ -119,7 +119,7 @@ export default function Profile() {
 
 			</div>
 			<Footer /> */}
-		</div>
-	
-	);
+    </div>
+
+  );
 }

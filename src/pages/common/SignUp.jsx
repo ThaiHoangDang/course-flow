@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { signUp } from '../../firebase/authentication';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function SignUp() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
@@ -12,6 +15,7 @@ export default function SignUp() {
         setError('');
         try {
             await signUp(email, password, role);
+            navigate('/login');
             // Handle successful sign-in, e.g., redirecting to a dashboard
         } catch (error) {
             setError(error.message);
@@ -23,7 +27,7 @@ export default function SignUp() {
                 <div className="bg-gray-100 flex justify-center items-center h-screen">
                     <div className="w-1/2 h-screen hidden lg:block">
                         <img
-                            src="https://images.unsplash.com/photo-1602734845056-ba5893c37370?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            src="https://images.unsplash.com/photo-1602734676133-b1f7a0a5e25c?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             className="object-cover w-full h-full"
                             alt="login"
                         />
