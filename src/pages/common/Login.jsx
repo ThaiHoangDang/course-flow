@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signIn, ProtectedRoute } from '../../firebase/authentication';
+import { signIn, ProtectedStudentRoute, ProtectedAdminRoute } from '../../firebase/authentication';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -13,7 +13,7 @@ export default function Login() {
 		setError('');
 		try {
 			await signIn(email, password);
-			if (ProtectedRoute())
+			if (ProtectedAdminRoute() || ProtectedStudentRoute())
 				navigate('/');
 			// Handle successful sign-in, e.g., redirecting to a dashboard
 		} catch (error) {
