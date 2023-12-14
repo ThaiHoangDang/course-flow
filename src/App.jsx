@@ -34,7 +34,7 @@ function App() {
           {/* admin pages */}
           <Route element={<ProtectedAdminRoute />}>
             <Route path="/programs-list" element={<ProgramsList />} />
-            <Route path="/program" element={<Program />} />
+            <Route path="/program/:id" element={<Program />} />
           </Route>
         </Routes>
       </BrowserRouter >
