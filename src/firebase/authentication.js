@@ -49,7 +49,7 @@ export const onAuthStateChange = (callback) => {
 
 // Protected Route function  for students
 export const ProtectedStudentRoute = () => {
-    const location = userLocation();
+    const location = useLocation();
     const userRole = Cookies.get("userRole");
 
     if (userRole === "Student") {
@@ -64,7 +64,7 @@ export const ProtectedStudentRoute = () => {
 // Protected Route function for admins
 
 export const ProtectedAdminRoute = () => {
-    const location = userLocation();
+    const location = useLocation();
     const userRole = Cookies.get("userRole");
 
     if (userRole === "Admin") {
