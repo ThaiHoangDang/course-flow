@@ -10,6 +10,7 @@ import Enrolment from "./pages/students/Enrolment";
 import GradeCalculator from "./pages/students/GradeCalculator";
 import Program from "./pages/admins/Program";
 import ProgramsList from "./pages/admins/ProgramsList";
+import { ProtectedAdminRoute, ProtectedStudentRoute } from "./firebase/authentication";
 
 
 function App() {
@@ -17,20 +18,27 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          {/* public pages */}
           <Route exact path="/" element={<Homepage />} />
-          <Route path="/course/:id" element={<Course />}/>
+          <Route path="/course/:id" element={<Course />} />
           <Route path="/courses-list" element={<CoursesList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/enrolment" element={<Enrolment />} />
-          <Route path="/grade-calculator" element={<GradeCalculator />} />
-          <Route path="/program/:id" element={<Program />} />
-          <Route path="/programs-list" element={<ProgramsList />} />
           <Route path="*" element={<NotFound />} />
+          {/* student pages */}
+          <Route element={<ProtectedStudentRoute />}>
+            <Route path="/enrolment" element={<Enrolment />} />
+            <Route path="/grade-calculator" element={<GradeCalculator />} />
+          </Route>
+          {/* admin pages */}
+          <Route element={<ProtectedAdminRoute />}>
+            <Route path="/programs-list" element={<ProgramsList />} />
+            <Route path="/program/:id" element={<Program />} />
+          </Route>
         </Routes>
-      </BrowserRouter>
-    </div>
+      </BrowserRouter >
+    </div >
   );
 }
 

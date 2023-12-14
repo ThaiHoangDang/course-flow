@@ -4,13 +4,14 @@ import { signUp } from '../../firebase/authentication';
 export default function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         try {
-            await signUp(email, password);
+            await signUp(email, password, role);
             // Handle successful sign-in, e.g., redirecting to a dashboard
         } catch (error) {
             setError(error.message);
@@ -31,6 +32,28 @@ export default function SignUp() {
                     <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
                         <h1 className="text-4xl font-semibold mb-4">Registration</h1>
                         <form onSubmit={handleSubmit}>
+                            {error && (
+                                <div className="mb-4">
+                                    <span className="text-red-500">{error}</span>
+                                </div>
+                            )}
+                            {/* User Input */}
+                            <div className="mb-4">
+                                <label htmlFor="role" className="block text-gray-600">
+                                    Role
+                                </label>
+                                <select
+                                    id="role"
+                                    name="role"
+                                    value={role}
+                                    onChange={(e) => setRole(e.target.value)}
+                                    className="w-full border bg-base-100 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
+                                >
+                                    <option value="" disabled>Select a Role</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                            </div>
                             {/* Username Input */}
                             <div className="mb-4">
                                 <label htmlFor="username" className="block text-gray-600">
