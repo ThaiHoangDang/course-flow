@@ -22,6 +22,7 @@ function App() {
           <Route exact path="/" element={<Homepage />} />
           <Route path="/course/:id" element={<Course />} />
           <Route path="/courses-list" element={<CoursesList />} />
+          <Route path="/programs-list" element={<ProgramsList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
@@ -33,7 +34,6 @@ function App() {
           </Route>
           {/* admin pages */}
           <Route element={<ProtectedAdminRoute />}>
-            <Route path="/programs-list" element={<ProgramsList />} />
             <Route path="/program/:id" element={<Program />} />
           </Route>
         </Routes>
