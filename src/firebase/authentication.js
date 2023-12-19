@@ -8,11 +8,11 @@ const SEVEN_DAYS_IN_SECONDS = 604800;
 const db = getFirestore();
 
 // Sign-up Function
-export const signUp = async (email, password, role) => {
+export const signUp = async (email, password, role, name, program) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const uid = userCredential.user.uid;
     const userRef = doc(db, "users", uid);
-    await setDoc(userRef, { role });
+    await setDoc(userRef, { role, name, program });
     return userCredential
 };
 

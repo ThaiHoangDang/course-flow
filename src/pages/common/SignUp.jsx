@@ -8,13 +8,15 @@ export default function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
+    const [program, setProgram] = useState('');
+    const [name, setName] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         try {
-            await signUp(email, password, role);
+            await signUp(email, password, role, name, program);
             navigate('/login');
             // Handle successful sign-in, e.g., redirecting to a dashboard
         } catch (error) {
@@ -56,6 +58,38 @@ export default function SignUp() {
                                     <option value="" disabled>Select a Role</option>
                                     <option value="Student">Student</option>
                                     <option value="Admin">Admin</option>
+                                </select>
+                            </div>
+                            {/* Name Input */}
+                            <div className="mb-4">
+                                <label htmlFor="name" className="block text-gray-600">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="w-full border bg-base-100 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
+                                    autoComplete="off"
+                                />
+                            </div>
+                            {/* Program Input */}
+                            <div className="mb-4">
+                                <label htmlFor="role" className="block text-gray-600">
+                                    Role
+                                </label>
+                                <select
+                                    id="program"
+                                    name="program"
+                                    value={program}
+                                    onChange={(e) => setProgram(e.target.value)}
+                                    className="w-full border bg-base-100 border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-black"
+                                >
+                                    <option value="" disabled>Select a Program</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Professioanl Communication">Professional Communication</option>
                                 </select>
                             </div>
                             {/* Username Input */}
@@ -100,8 +134,6 @@ export default function SignUp() {
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );
