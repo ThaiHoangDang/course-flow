@@ -209,13 +209,14 @@ export default function Homepage() {
               </svg>
             </div>
             <div className="timeline-start md:text-end mb-10">
-              <time className="font-mono italic">WEEK 1</time>
-              <div className="text-lg font-black">Lorem</div>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore
-              corporis amet eaque rerum veritatis laborum. Ducimus, eos
-              molestias! Necessitatibus illum quo ex doloremque ducimus non
-              porro mollitia asperiores, et iure amet laudantium natus similique
-              deleniti ullam, placeat quae itaque neque?
+              <time className="font-mono italic">WEEK 0 & WEEK 1</time>
+              <div className="text-lg font-black">
+                Introduction and Orientation
+              </div>
+              In Week 1, you'll register on our Course Management System and set
+              up your user profile. Engage in the welcome discussion forum,
+              share an introduction, and submit the Week 1 icebreaker
+              assignment.
             </div>
             <hr />
           </li>
@@ -236,12 +237,12 @@ export default function Homepage() {
             </div>
             <div className="timeline-end mb-10">
               <time className="font-mono italic">WEEK 4</time>
-              <div className="text-lg font-black">Lorem</div>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet
-              fugiat blanditiis perferendis tempora, inventore magni! Natus
-              perspiciatis repellat quia quae doloremque ea ducimus aliquid
-              pariatur eaque temporibus enim neque nesciunt porro quasi, nihil
-              dolor quisquam ab ut repellendus, animi adipisci.
+              <div className="text-lg font-black">
+                Midterm Review and Assessments
+              </div>
+              Reflect on what you've learned. Review materials, complete midterm
+              assignments, and join review sessions for crucial feedback on your
+              progress.
             </div>
             <hr />
           </li>
@@ -262,12 +263,10 @@ export default function Homepage() {
             </div>
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">WEEK 5</time>
-              <div className="text-lg font-black">Lorem</div>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              provident ea deserunt recusandae corporis tempore temporibus rerum
-              molestias nulla omnis iure consectetur nam cupiditate optio totam,
-              debitis assumenda, tempora mollitia nemo facere amet voluptate.
-              Nam sequi nostrum numquam voluptatum reiciendis.
+              <div className="text-lg font-black">Group Project Kickoff</div>
+              Form groups, plan project details, and start collaborative work.
+              Maintain open communication with your group members throughout
+              this week.
             </div>
             <hr />
           </li>
@@ -288,12 +287,13 @@ export default function Homepage() {
             </div>
             <div className="timeline-end mb-10">
               <time className="font-mono italic">WEEK 7</time>
-              <div className="text-lg font-black">Lorem </div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur praesentium ipsa aliquam ea est voluptate explicabo
-              amet dignissimos, commodi eaque iste soluta vero mollitia atque
-              distinctio, facilis sint sequi? Veritatis, modi! Ducimus veniam
-              rerum vel suscipit. Eius repudiandae consequatur suscipit.
+              <div className="text-lg font-black">
+                Assessments and Progress Check
+              </div>
+              Check the assessment schedule, review and complete assignments,
+              and engage in Q&A sessions. Reflect on your learning journey and
+              refine study strategies. You may have to take some tests during
+              this week.
             </div>
             <hr />
           </li>
@@ -314,12 +314,14 @@ export default function Homepage() {
             </div>
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">WEEK 12</time>
-              <div className="text-lg font-black">Lorem</div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto consequuntur quibusdam delectus natus numquam culpa
-              provident earum eos reiciendis odit, atque sed autem blanditiis
-              facere necessitatibus recusandae nihil fuga assumenda nam impedit?
-              Provident ipsa est architecto consectetur, odio cupiditate beatae!
+              <div className="text-lg font-black">
+                Final Week and Course Wrap-up
+              </div>
+              Review final assignments, confirm submission guidelines, and
+              participate in any final Q&A sessions. Reflect on the course,
+              provide feedback, and receive final grades and feedback. Access
+              your certificate of completion if applicable, marking the end of
+              your course journey.
             </div>
           </li>
         </ul>
@@ -351,11 +353,11 @@ export default function Homepage() {
                 <div className="flex items-center py-2">
                   <span className="text-gray-500">
                     Yes, you can, but penalties will be applied, depending on
-                    the week that you drop the course. To be more specific: if
+                    the week that you drop the course. To be more specific, if
                     you drop a course during the first 4 weeks, no penalty will
                     be applied; if you drop between Week 5 and Week 6, you will
-                    be fined 2.000.000 VND; if you drop after Week 6, you will
-                    have to fully pay for the course that you dropped.
+                    be fined 2.000.000 VND; and if you drop after Week 6, you
+                    will have to fully pay for the course that you dropped.
                   </span>
                 </div>
               </div>
