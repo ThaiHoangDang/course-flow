@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signIn } from '../../firebase/authentication';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
 	const navigate = useNavigate();
@@ -93,6 +93,9 @@ export default function Login() {
 								<a href="login" className="hover:underline">
 									Forgot Password?
 								</a>
+							</div>
+							<div className="mb-4">
+								<p className='text-slate-400'> <Link to="/signup">Don't have an account?</Link></p>
 							</div>
 							{/* Login Button */}
 							<button

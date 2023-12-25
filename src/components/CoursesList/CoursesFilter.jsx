@@ -1,4 +1,4 @@
-export default function CoursesFilter({filterText, onFilterTextChange, onOpenedOnlyChange, openedOnly}) {
+export default function CoursesFilter({ filterText, onFilterTextChange, onOpenedOnlyChange, openedOnly }) {
 
   return (
     <div className="form-control shadow-sm border-1 px-5 py-5 sticky top-10">
