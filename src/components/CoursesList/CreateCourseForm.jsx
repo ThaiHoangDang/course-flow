@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+
+import { db } from "../../config/firebase";
+import { collection, addDoc } from "firebase/firestore"; 
+
 
 export default function CreateCourseForm({ courses }) {
   const [code, setCode] = useState("");
@@ -32,14 +35,26 @@ export default function CreateCourseForm({ courses }) {
     setPrerequisites(prerequisites.filter(prereq => prereq !== course));
   }
 
-  function submit() {
+  async function submit() {
+    const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
 
+    const newCourse = {
+      code: code,
+      credits: credit,
+      description: description,
+      name: title,
+      prerequisites: prerequisiteIds,
+      status: true,
+    };
+
+    await addDoc(collection(db, "course"), newCourse);
+    window.location.reload();
   }
 
   return (
     <div className="my-8 mx-2">
       <h2 className="text-2xl text-center">Create a new course</h2>
-      <form className="mt-14">
+      <form className="mt-16">
         <div className="mb-5 flex gap-5">
           <div className="basis-8/12">
             <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course code</label>
