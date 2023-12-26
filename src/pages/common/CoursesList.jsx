@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import { getCurrentUserRole } from "../../firebase/authentication";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CoursesTable from "../../components/CoursesList/CoursesTable";
@@ -32,6 +33,7 @@ export default function CourseList() {
             onFilterTextChange={setFilterText}
             onOpenedOnlyChange={setOpenedOnly}
             openedOnly={openedOnly}
+            courses={courses}
           />
         </div>
         <div className="flex-1 my-10">

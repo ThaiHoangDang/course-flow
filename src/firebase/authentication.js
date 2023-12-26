@@ -60,9 +60,7 @@ export const ProtectedStudentRoute = () => {
 };
 
 
-
 // Protected Route function for admins
-
 export const ProtectedAdminRoute = () => {
     const location = useLocation();
     const userRole = Cookies.get("userRole");
@@ -72,4 +70,9 @@ export const ProtectedAdminRoute = () => {
     } else {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
+};
+
+// Function to get the current user's role from the cookie
+export const getCurrentUserRole = () => {
+    return Cookies.get("userRole");
 };
