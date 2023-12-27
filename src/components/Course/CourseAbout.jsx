@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { getCurrentUserRole } from "../../firebase/authentication";
+import CreateCourseForm from "../CoursesList/CreateCourseForm";
 
 export default function CourseAbout({code, name, credits, prerequites, status}) {
 
@@ -45,7 +47,22 @@ export default function CourseAbout({code, name, credits, prerequites, status}) 
               </td>
           </tbody>
         </table>
-      </div>
+        {
+          getCurrentUserRole() === "Admin" ?
+            <div className="border-t px-5 py-5">
+              <button onClick={()=>document.getElementById('my_modal_3').showModal()} class="btn btn-outline w-full">Edit course</button>
+              <dialog id="my_modal_3" className="modal">
+                <div className="modal-box max-h-[600px] no-scrollbar">
+                  <form method="dialog">
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                  </form>
+                  <CreateCourseForm courses={null} />
+                </div>
+              </dialog>
+            </div>
+          : null
+        }
+        </div>
     </div>
   );
 }

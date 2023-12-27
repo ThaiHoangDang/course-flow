@@ -12,6 +12,7 @@ export default function CreateCourseForm({ courses }) {
   const [prerequisites, setPrerequisites] = useState([]);
   const [searchCourse, setSearchCourse] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const [status, setStatus] = useState(true);
 
   const handleSearch = (value) => {
 		setSearchCourse(value);
@@ -36,6 +37,11 @@ export default function CreateCourseForm({ courses }) {
   }
 
   async function submit() {
+    if (!code || !credit || !title || !description) {
+      console.error("Please fill in all required fields.");
+      return;
+    }
+
     const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
 
     const newCourse = {
@@ -44,7 +50,7 @@ export default function CreateCourseForm({ courses }) {
       description: description,
       name: title,
       prerequisites: prerequisiteIds,
-      status: true,
+      status: status,
     };
 
     await addDoc(collection(db, "course"), newCourse);
@@ -61,13 +67,28 @@ export default function CreateCourseForm({ courses }) {
             <input value={code} id="code" onChange={(e) => setCode(e.target.value)} type="text" placeholder="CS 246.." className="input input-bordered input-md w-full" required/>
           </div>
           <div className="basis-4/12">
+            <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+            <select
+              value={status ? "true" : "false"}
+              onChange={(e) => setStatus(e.target.value === "true")}
+              id="status"
+              className="select select-bordered w-full max-w-xs"
+              required
+            >
+              <option value="true">Opened</option>
+              <option value="false">Closed</option>
+            </select>
+          </div>
+        </div>
+        <div className="mb-5 flex gap-5">
+          <div className="basis-9/12">
+            <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course name</label>
+            <input value={title} id="title" onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Object Oriented Development.." className="input input-bordered input-md w-full" required/>
+          </div>
+          <div className="basis-3/12">
             <label htmlFor="credit" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Credits</label>
             <input value={credit} id="credit" onChange={(e) => setCredit(e.target.value)} type="number" placeholder="12.." className="input input-bordered input-md w-full" required/>
           </div>
-        </div>
-        <div className="mb-5">
-          <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course name</label>
-          <input value={title} id="title" onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Object Oriented Development.." className="input input-bordered input-md w-full" required/>
         </div>
         <div className="mb-5">
           <label  htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course description</label>

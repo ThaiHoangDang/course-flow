@@ -16,7 +16,7 @@ export default function CoursesFilter({ filterText, onFilterTextChange, onOpened
       {
         getCurrentUserRole() === "Admin" ?
           <div className="border-t px-5 py-5">
-            <button onClick={()=>document.getElementById('my_modal_3').showModal()} class="btn btn-outline w-full">Create a new course</button>
+            <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn btn-outline w-full">Create a new course</button>
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box max-h-[600px] no-scrollbar">
                 <form method="dialog">
