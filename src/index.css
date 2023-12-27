@@ -27,3 +27,7 @@ font-style: normal; */
 .border-1 {
   border-width: 1px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

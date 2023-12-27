@@ -44,7 +44,7 @@ export default function Course() {
 			<div className="px-8 lg:px-32 py-20">
 				<div className="md:flex gap-5">
 					<div className="w-full md:w-72 mb-10">
-						<CourseAbout code={course["code"]} name={course["name"]} credits={course["credits"]} prerequites={course["prerequisites"]} status={course["status"]}/>
+						<CourseAbout course={course}/>
 					</div>
 					<div className="mb-10 flex-1">
 						<div className="border">

@@ -56,8 +56,12 @@ export default function Header() {
 							<div className="absolute mt-12 bg-white w-full border rounded-xl shadow-lg z-10">
 								<ul>
 									{filteredCourses.slice(0, 5).map(course => (
-										<li key={course.id} className="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">
-											<Link to={`/course/${course.id}`} onClick={() => setSearchTerm('')}>{course.name}</Link>
+										<li key={course.id} className="px-4 py-2 hover:bg-gray-100 rounded-lg hover:cursor-pointer">
+											<Link to={`/course/${course.id}`} onClick={() => setSearchTerm('')}>
+												<div className='w-full'>
+													{course.name}
+												</div>
+											</Link>
 										</li>
 									))}
 								</ul>
