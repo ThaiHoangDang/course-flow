@@ -37,6 +37,7 @@ export default function Program() {
   
       await delete programInfo["program_map"];
       programInfo = { ...programInfo, program_map };
+      console.log(programInfo);
 
       setProgram(programInfo);
     }

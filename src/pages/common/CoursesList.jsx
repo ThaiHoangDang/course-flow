@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { getCurrentUserRole } from "../../firebase/authentication";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CoursesTable from "../../components/CoursesList/CoursesTable";
