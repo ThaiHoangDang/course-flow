@@ -1,27 +1,55 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { db } from "../../config/firebase";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { getAllCourses } from "../../firebase/courses";
 
 
-export default function CreateCourseForm({ courses }) {
+export default function CreateCourseForm({ inputCourse = null }) {
+  const [courses, setCourses] = useState([]);
   const [code, setCode] = useState("");
   const [credit, setCredit] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [prerequisites, setPrerequisites] = useState([]);
+  const [status, setStatus] = useState(true);
   const [searchCourse, setSearchCourse] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const [status, setStatus] = useState(true);
+
+  useEffect(() => {
+    async function fetchCourses() {
+			const courseInfo = await getAllCourses();
+      setCourses(courseInfo);
+    }
+
+    fetchCourses();
+  }, []);
+
+
+  useEffect(() => {
+    // Move the state-setting logic inside the useEffect hook
+    
+    if (inputCourse != null) {
+      console.log(inputCourse);
+      setCode(inputCourse["code"]);
+      setCredit(inputCourse["credits"]);
+      setTitle(inputCourse["name"]);
+      setDescription(inputCourse["description"]);
+      setPrerequisites(inputCourse["prerequisites"]);
+      setStatus(inputCourse["status"]);
+    }
+  }, [inputCourse]);
 
   const handleSearch = (value) => {
 		setSearchCourse(value);
 
+    const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
+
 		// Filter through your courses based on the search term
-		const filtered = courses.filter(course =>
+		let filtered = courses.filter(course =>
 			(course.name.toLowerCase().includes(value.toLowerCase()) 
       || course.code.toLowerCase().includes(value.toLowerCase()))
-      && (! prerequisites.includes(course))
+      && (! prerequisiteIds.includes(course["id"]))
 		);
 
 		setFilteredCourses(filtered); // Update your filteredCourses state with the filtered courses
@@ -54,6 +82,28 @@ export default function CreateCourseForm({ courses }) {
     };
 
     await addDoc(collection(db, "course"), newCourse);
+    window.location.reload();
+  }
+
+  async function update() {
+    if (!code || !credit || !title || !description) {
+      console.error("Please fill in all required fields.");
+      return;
+    }
+
+    const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
+
+    const newCourse = {
+      code: code,
+      credits: credit,
+      description: description,
+      name: title,
+      prerequisites: prerequisiteIds,
+      status: status,
+    };
+
+    const courseRef = doc(db, "course", inputCourse["id"]);
+    await updateDoc(courseRef, newCourse);
     window.location.reload();
   }
 
@@ -98,14 +148,14 @@ export default function CreateCourseForm({ courses }) {
           <label  htmlFor="prerequisites" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course prerequisites</label>
           <div id="prerequisites" className="mb-4 text-sm rounded-lg border-neutral-300 bg-neutral-100 border">
             {
-              prerequisites.length === 0
+              prerequisites && prerequisites.length === 0
               ?
                 <div className="p-3">
                   There are currently no prerequisites for this course
                 </div>
               :
               <ul>
-                {prerequisites.map(course => (
+                {prerequisites && prerequisites.map(course => (
                   <li key={course.id} onClick={() => removePrerequisite(course)} className=" hover:bg-gray-100 hover:cursor-pointer rounded-lg">
                     <div className="p-3 rounded-lg hover:bg-neutral-200">
                       {course.code + " | " + course.name}
@@ -119,7 +169,7 @@ export default function CreateCourseForm({ courses }) {
           {searchCourse && (
 							<div className="bg-white w-full border rounded-lg shadow-lg text-sm mt-2">
 								<ul>
-									{filteredCourses.map(course => (
+									{filteredCourses && filteredCourses.map(course => (
 										<li key={course.id} onClick={() => addPrerequisite(course)} className="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">
                       {course.code + " | " + course.name}
 										</li>
@@ -128,7 +178,7 @@ export default function CreateCourseForm({ courses }) {
 							</div>
 						)}
         </div>
-        <div onClick={submit} className="mt-10 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
+        <div onClick={inputCourse ? update : submit} className="mt-10 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
       </form>
     </div>
   );

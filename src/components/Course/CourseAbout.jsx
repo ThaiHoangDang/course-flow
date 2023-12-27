@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { getCurrentUserRole } from "../../firebase/authentication";
 import CreateCourseForm from "../CoursesList/CreateCourseForm";
 
-export default function CourseAbout({code, name, credits, prerequites, status}) {
+export default function CourseAbout({ course }) {
 
   return (
     <div className="border sticky top-10">
@@ -14,22 +14,22 @@ export default function CourseAbout({code, name, credits, prerequites, status}) 
           <tbody>
             <tr>
               <td>Code</td>
-              <td>{code}</td>
+              <td>{course["code"]}</td>
             </tr>
             <tr>
               <td>Name</td>
-              <td>{name}</td>
+              <td>{course["name"]}</td>
             </tr>
             <tr>
               <td>Credits</td>
-              <td>{credits}</td>
+              <td>{course["credits"]}</td>
             </tr>
             <tr>
               <td>Prerequites</td>
               <td>
                 {
-                  prerequites && prerequites.length > 0
-                    ? prerequites.map((item, index) => (
+                  course["prerequisites"] && course["prerequisites"].length > 0
+                    ? course["prerequisites"].map((item, index) => (
                         <div className="hover:underline" key={index}>
                           <Link to={`/course/${item.id}`}>
                             {item.code}
@@ -41,7 +41,7 @@ export default function CourseAbout({code, name, credits, prerequites, status}) 
               </td>
             </tr>
               <td>Status</td>
-              <td>{status === true 
+              <td>{course["status"] === true 
                 ? <span className="text-green-600">Opened</span>
                 : <span className="text-red-600">Closed</span>}
               </td>
@@ -56,7 +56,7 @@ export default function CourseAbout({code, name, credits, prerequites, status}) 
                   <form method="dialog">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                   </form>
-                  <CreateCourseForm courses={null} />
+                  <CreateCourseForm inputCourse={course} />
                 </div>
               </dialog>
             </div>

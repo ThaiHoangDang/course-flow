@@ -22,7 +22,7 @@ export default function CoursesFilter({ filterText, onFilterTextChange, onOpened
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
-                <CreateCourseForm courses={courses} />
+                <CreateCourseForm />
               </div>
             </dialog>
           </div>
