@@ -27,16 +27,13 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
 
   useEffect(() => {
-    // Move the state-setting logic inside the useEffect hook
-    
     if (inputCourse != null) {
-      console.log(inputCourse);
-      setCode(inputCourse["code"]);
-      setCredit(inputCourse["credits"]);
-      setTitle(inputCourse["name"]);
-      setDescription(inputCourse["description"]);
-      setPrerequisites(inputCourse["prerequisites"]);
-      setStatus(inputCourse["status"]);
+      setCode(inputCourse["code"] || "");
+      setCredit(inputCourse["credits"] || "");
+      setTitle(inputCourse["name"] || "");
+      setDescription(inputCourse["description"] || "");
+      setPrerequisites(inputCourse["prerequisites"] || []);
+      setStatus(inputCourse["status"] || true);
     }
   }, [inputCourse]);
 
