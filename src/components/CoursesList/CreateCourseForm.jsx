@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import { db } from "../../config/firebase";
-import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore";
 import { getAllCourses } from "../../firebase/courses";
 
 
@@ -15,6 +16,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
   const [status, setStatus] = useState(true);
   const [searchCourse, setSearchCourse] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCourses() {
@@ -28,12 +30,13 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   useEffect(() => {
     if (inputCourse != null) {
+      console.log(inputCourse);
       setCode(inputCourse["code"] || "");
       setCredit(inputCourse["credits"] || "");
       setTitle(inputCourse["name"] || "");
       setDescription(inputCourse["description"] || "");
       setPrerequisites(inputCourse["prerequisites"] || []);
-      setStatus(inputCourse["status"] || true);
+      setStatus(inputCourse["status"]);
     }
   }, [inputCourse]);
 
@@ -82,7 +85,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
     window.location.reload();
   }
 
-  async function update() {
+  async function updateCourse() {
     if (!code || !credit || !title || !description) {
       console.error("Please fill in all required fields.");
       return;
@@ -104,9 +107,14 @@ export default function CreateCourseForm({ inputCourse = null }) {
     window.location.reload();
   }
 
+  async function deleteCourse() {
+    await deleteDoc(doc(db, "course", inputCourse["id"]));
+    navigate('/courses-list');
+  }
+
   return (
     <div className="my-8 mx-2">
-      <h2 className="text-2xl text-center">Create a new course</h2>
+      <h2 className="text-2xl text-center">{ inputCourse ? "Edit course" : "Create a new course"}</h2>
       <form className="mt-16">
         <div className="mb-5 flex gap-5">
           <div className="basis-8/12">
@@ -175,7 +183,26 @@ export default function CreateCourseForm({ inputCourse = null }) {
 							</div>
 						)}
         </div>
-        <div onClick={inputCourse ? update : submit} className="mt-10 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
+        {
+          inputCourse ?
+          <div>
+            <div onClick={()=>document.getElementById('my_modal_4').showModal()} className="mt-10 w-full text-red-500 bg-white hover:bg-red-600 border border-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Delete course</div>
+            <dialog id="my_modal_4" className="modal">
+              <div className="modal-box w-96 max-w-5xl">
+                <h3 className="font-bold text-lg">Warning!</h3>
+                <p className="py-4">Do you want to delete this course?</p>
+                <div className="modal-action">
+                  <form method="dialog">
+                    <button className="w-full text-neutral-600 border border-neutral-600 hover:text-white bg-white hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Cancel</button>
+                  </form>
+                  <div onClick={deleteCourse} className="text-red-500 bg-white hover:bg-red-600 border border-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Delete</div>
+                </div>
+              </div>
+            </dialog>
+          </div>
+          : null
+        }
+        <div onClick={inputCourse ? updateCourse : submit} className="mt-5 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
       </form>
     </div>
   );
