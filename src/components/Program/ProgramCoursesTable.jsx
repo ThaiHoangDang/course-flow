@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-export default function ProgramCoursesTable({courses, filterCourses, openedOnly = false}) {
+export default function ProgramCoursesTable({programMap, filterCourses, openedOnly = false}) {
   
   const navigate = useNavigate();
   const handleRowClick = (id) => {
@@ -21,16 +21,16 @@ export default function ProgramCoursesTable({courses, filterCourses, openedOnly 
           </tr>
         </thead>
         <tbody>
-          {courses != null && courses.map((course) => {
-            if (filterCourses !== "" && (! course["code"].toLowerCase().includes(filterCourses.toLowerCase())) && (! course["name"].toLowerCase().includes(filterCourses.toLowerCase()))) return null;
-            if (openedOnly && course["status"] === false) return null;
+          {programMap != null && programMap.map((courseMap) => {
+            if (filterCourses !== "" && (! courseMap["course"]["code"].toLowerCase().includes(filterCourses.toLowerCase())) && (! courseMap["course"]["name"].toLowerCase().includes(filterCourses.toLowerCase()))) return null;
+            if (openedOnly && courseMap["course"]["status"] === false) return null;
             return (
-              <tr className="hover:underline hover:cursor-pointer" key={course["code"]} onClick={()=> handleRowClick(course["id"])}>
-                <td>{course["semester"]}</td>
-                <td>{course["code"]}</td>
-                <td>{course["name"]}</td>
-                <td>{course["credits"]}</td>
-                <td>{course["status"] === true 
+              <tr className="hover:underline hover:cursor-pointer" key={courseMap["course"]["code"]} onClick={()=> handleRowClick(courseMap["course"]["id"])}>
+                <td>{courseMap["semester"]}</td>
+                <td>{courseMap["course"]["code"]}</td>
+                <td>{courseMap["course"]["name"]}</td>
+                <td>{courseMap["course"]["credits"]}</td>
+                <td>{courseMap["course"]["status"] === true 
                   ? <span className="text-green-600">Opened</span>
                   : <span className="text-red-600">Closed</span>}
                 </td>

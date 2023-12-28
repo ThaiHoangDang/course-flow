@@ -31,7 +31,6 @@ export default function CreateProgramForm({ inputProgram = null }) {
 
   useEffect(() => {
     if (inputProgram != null) {
-      console.log(inputProgram);
       setCode(inputProgram["code"] || "");
       setName(inputProgram["name"] || "");
       setDescription(inputProgram["description"] || "");
@@ -87,8 +86,6 @@ export default function CreateProgramForm({ inputProgram = null }) {
       program_map: programMapIds
     };
 
-    console.log(newProgram);
-
     await addDoc(collection(db, "Program"), newProgram);
     window.location.reload();
   }
@@ -99,7 +96,7 @@ export default function CreateProgramForm({ inputProgram = null }) {
       return;
     }
 
-    const programMapIds = programMap.map(courseMap => ({ id: courseMap.course.id, semester: courseMap.semester }));
+    const programMapIds = programMap.map(courseMap => ({ course_id: courseMap.course.id, semester: courseMap.semester }));
 
     const newProgram = {
       code: code,
@@ -109,9 +106,9 @@ export default function CreateProgramForm({ inputProgram = null }) {
       program_map: programMapIds
     };
 
-  //   const courseRef = doc(db, "course", inputProgram["id"]);
-  //   await updateDoc(courseRef, newCourse);
-  //   window.location.reload();
+    const programRef = doc(db, "Program", inputProgram["id"]);
+    await updateDoc(programRef, newProgram);
+    window.location.reload();
   }
 
   async function deleteProgram() {
@@ -198,10 +195,10 @@ export default function CreateProgramForm({ inputProgram = null }) {
 							</div>
 						)}
         </div>
-        {
+        {/* {
           inputProgram ?
           <div>
-            <div onClick={()=>document.getElementById('my_modal_4').showModal()} className="mt-10 w-full text-red-500 bg-white hover:bg-red-600 border border-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Delete course</div>
+            <div onClick={()=>document.getElementById('my_modal_4').showModal()} className="mt-10 w-full text-red-500 bg-white hover:bg-red-600 border border-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Delete program</div>
             <dialog id="my_modal_4" className="modal">
               <div className="modal-box w-96 max-w-5xl">
                 <h3 className="font-bold text-lg">Warning!</h3>
@@ -216,8 +213,8 @@ export default function CreateProgramForm({ inputProgram = null }) {
             </dialog>
           </div>
           : null
-        }
-        <div onClick={inputProgram ? updateProgram : submit} className="mt-5 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
+        } */}
+        <div onClick={inputProgram ? updateProgram : submit} className="mt-10 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
       </form>
     </div>
   );

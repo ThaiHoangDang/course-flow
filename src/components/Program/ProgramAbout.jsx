@@ -2,7 +2,6 @@ import { getCurrentUserRole } from "../../firebase/authentication";
 import CreateProgramForm from "../ProgramsList/CreateProgramForm";
 
 export default function ProgramAbout({ program, filterStudents, onFilterStudentsChange, filterCourses, onFilterCoursesChange }) {
-  console.log(program);
 
   return (
     <div className="border sticky top-10">
@@ -37,7 +36,7 @@ export default function ProgramAbout({ program, filterStudents, onFilterStudents
                   <form method="dialog">
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                   </form>
-                  {/* <CreateProgramForm inputProgram={program} /> */}
+                  <CreateProgramForm inputProgram={program} />
                 </div>
               </dialog>
             </div>

@@ -30,7 +30,6 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   useEffect(() => {
     if (inputCourse != null) {
-      console.log(inputCourse);
       setCode(inputCourse["code"] || "");
       setCredit(inputCourse["credits"] || "");
       setTitle(inputCourse["name"] || "");
@@ -66,7 +65,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   async function submit() {
     if (!code || !credit || !title || !description) {
-      console.error("Please fill in all required fields.");
+      alert("Please fill in all required fields.");
       return;
     }
 
@@ -87,7 +86,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   async function updateCourse() {
     if (!code || !credit || !title || !description) {
-      console.error("Please fill in all required fields.");
+      alert("Please fill in all required fields.");
       return;
     }
 

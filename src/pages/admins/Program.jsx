@@ -30,10 +30,12 @@ export default function Program() {
         return; // Make sure to return here to avoid executing the rest of the code
       }
   
-      const program_map = await Promise.all(programInfo["program_map"].map(async (course) => {
-        const courseInfo = await getCourse(course["course_id"]);
-        return {...course, ...courseInfo};
+      let program_map = await Promise.all(programInfo["program_map"].map(async (courseMap) => {
+        const courseInfo = await getCourse(courseMap["course_id"]);
+        return {course: courseInfo, semester: courseMap.semester };
       }));
+
+      program_map = program_map.slice().sort((a, b) => a.semester - b.semester);
   
       await delete programInfo["program_map"];
       programInfo = { ...programInfo, program_map };
@@ -72,7 +74,7 @@ export default function Program() {
               <h2 className="collapse-title text-xl">Courses list</h2>
               <div className="collapse-content bg-white border-t overflow-x-auto">
                 <div className="w-full h-full py-4">
-                  <ProgramCoursesTable courses={program["program_map"]} filterCourses={filterCourses} />
+                  <ProgramCoursesTable programMap={program["program_map"]} filterCourses={filterCourses} />
                 </div>
               </div>
             </div>
