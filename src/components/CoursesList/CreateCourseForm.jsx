@@ -30,7 +30,6 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   useEffect(() => {
     if (inputCourse != null) {
-      console.log(inputCourse);
       setCode(inputCourse["code"] || "");
       setCredit(inputCourse["credits"] || "");
       setTitle(inputCourse["name"] || "");
@@ -66,7 +65,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   async function submit() {
     if (!code || !credit || !title || !description) {
-      console.error("Please fill in all required fields.");
+      alert("Please fill in all required fields.");
       return;
     }
 
@@ -87,7 +86,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   async function updateCourse() {
     if (!code || !credit || !title || !description) {
-      console.error("Please fill in all required fields.");
+      alert("Please fill in all required fields.");
       return;
     }
 
@@ -162,7 +161,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
               <ul>
                 {prerequisites && prerequisites.map(course => (
                   <li key={course.id} onClick={() => removePrerequisite(course)} className=" hover:bg-gray-100 hover:cursor-pointer rounded-lg">
-                    <div className="p-3 rounded-lg hover:bg-neutral-200">
+                    <div className="p-3 rounded-lg hover:bg-red-200">
                       {course.code + " | " + course.name}
                     </div>
                   </li>

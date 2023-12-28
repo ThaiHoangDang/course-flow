@@ -1,4 +1,4 @@
-export default function ProgramHeader({code, name, current, past, total}) {
+export default function ProgramHeader({program, code, name, current, past, total}) {
 
   return (
     <div className="bg-base-200 shadow-inner">
@@ -12,21 +12,18 @@ export default function ProgramHeader({code, name, current, past, total}) {
         <div className="mx-auto stats flex max-w-2xl shadow text-center">
     
           <div className="stat">
-            <div className="stat-title">Current</div>
+            <div className="stat-title">Students</div>
             <div className="text-3xl font-bold my-3">{current ? current : "_"}</div>
-            <div className="stat-desc">Students</div>
           </div>
 
           <div className="stat">
-            <div className="stat-title">Past</div>
-            <div className="text-3xl font-bold my-3">{past ? past : "_"}</div>
-            <div className="stat-desc">Students</div>
+            <div className="stat-title">Courses</div>
+            <div className="text-3xl font-bold my-3">{program["program_map"] ? program["program_map"].length : 0}</div>
           </div>
           
           <div className="stat">
             <div className="stat-title">Total</div>
             <div className="text-3xl font-bold my-3">{total ? total : "_"}</div>
-            <div className="stat-desc">Students</div>
           </div>
           
         </div>
