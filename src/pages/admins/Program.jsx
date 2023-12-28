@@ -48,6 +48,7 @@ export default function Program() {
     <div>
       <Header />
       <ProgramHeader
+        program={program}
         code={program["code"]}
         name={program["name"]}
         current="135"

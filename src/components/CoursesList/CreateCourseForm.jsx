@@ -30,6 +30,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 
   useEffect(() => {
     if (inputCourse != null) {
+      console.log(inputCourse);
       setCode(inputCourse["code"] || "");
       setCredit(inputCourse["credits"] || "");
       setTitle(inputCourse["name"] || "");

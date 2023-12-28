@@ -31,6 +31,7 @@ export default function CreateProgramForm({ inputProgram = null }) {
 
   useEffect(() => {
     if (inputProgram != null) {
+      console.log(inputProgram);
       setCode(inputProgram["code"] || "");
       setName(inputProgram["name"] || "");
       setDescription(inputProgram["description"] || "");
