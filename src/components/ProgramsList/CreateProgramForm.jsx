@@ -64,43 +64,49 @@ export default function CreateProgramForm({ inputProgram = null }) {
     setProgramMap(programMap.filter(myCourseMap => myCourseMap !== courseMap));
   }
 
+  function updateSemester(index, semester) {
+    const updatedProgramMap = [...programMap];
+    updatedProgramMap[index].semester = semester;
+    setProgramMap(updatedProgramMap);
+  }
+
   async function submit() {
-  //   if (!code || !credit || !title || !description) {
-  //     console.error("Please fill in all required fields.");
-  //     return;
-  //   }
+    if (!code || !name || !description) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
-  //   const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
+    const programMapIds = programMap.map(courseMap => ({ course_id: courseMap.course.id, semester: courseMap.semester }));
 
-  //   const newCourse = {
-  //     code: code,
-  //     credits: credit,
-  //     description: description,
-  //     name: title,
-  //     prerequisites: prerequisiteIds,
-  //     status: status,
-  //   };
+    const newProgram = {
+      code: code,
+      name: name,
+      description: description,
+      type: degree,
+      program_map: programMapIds
+    };
 
-  //   await addDoc(collection(db, "course"), newCourse);
-  //   window.location.reload();
+    console.log(newProgram);
+
+    await addDoc(collection(db, "Program"), newProgram);
+    window.location.reload();
   }
 
   async function updateProgram() {
-  //   if (!code || !credit || !title || !description) {
-  //     console.error("Please fill in all required fields.");
-  //     return;
-  //   }
+    if (!code || !name || !description) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
-  //   const prerequisiteIds = prerequisites.map(prerequisite => prerequisite.id);
+    const programMapIds = programMap.map(courseMap => ({ id: courseMap.course.id, semester: courseMap.semester }));
 
-  //   const newCourse = {
-  //     code: code,
-  //     credits: credit,
-  //     description: description,
-  //     name: title,
-  //     prerequisites: prerequisiteIds,
-  //     status: status,
-  //   };
+    const newProgram = {
+      code: code,
+      name: name,
+      description: description,
+      type: degree,
+      program_map: programMapIds
+    };
 
   //   const courseRef = doc(db, "course", inputProgram["id"]);
   //   await updateDoc(courseRef, newCourse);
@@ -146,21 +152,34 @@ export default function CreateProgramForm({ inputProgram = null }) {
         </div>
         <div className="mb-5">
           <label  htmlFor="programMap" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program Map</label>
-          <div id="programMap" className="mb-4 text-sm rounded-lg border-neutral-300 bg-neutral-100 border">
+          <div id="programMap" className="mb-4 text-sm  ">
             {
               programMap && programMap.length === 0
               ?
-                <div className="p-3">
+                <div className="p-3 rounded-lg border-neutral-300 bg-neutral-100 border">
                   There are currently no courses for this program
                 </div>
               :
               <ul>
-                {programMap && programMap.map(course => (
-                  <li key={course.id} onClick={() => removeCourse(course)} className=" hover:bg-gray-100 hover:cursor-pointer rounded-lg">
-                    <div className="p-3 rounded-lg hover:bg-neutral-200">
-                      {course.code + " | " + course.name}
-                    </div>
-                  </li>
+                {programMap &&
+                  programMap.length > 0 &&
+                  programMap.map((courseMap, index) => (
+                    <li key={courseMap.course.id} className="mb-2 bg-neutral-100 border border-neutral-300 hover:cursor-pointer rounded-lg flex">
+                      <div className="basis-2/12 border-r border-neutral-300">
+                        <input
+                          value={courseMap.semester}
+                          type="number"
+                          onChange={(e) => updateSemester(index, e.target.value)}
+                          className="text-center h-full input rounded-r-none input-md w-full"
+                          required min="0"
+                        />
+                      </div>
+                      <div onClick={() => removeCourse(courseMap)} className="flex-1 px-3 rounded-r-lg hover:bg-red-200 flex">
+                        <p className="line-clamp-1 my-auto">
+                          {courseMap.course.code + " | " + courseMap.course.name}
+                        </p>
+                      </div>
+                    </li>
                 ))}
               </ul>
             }
