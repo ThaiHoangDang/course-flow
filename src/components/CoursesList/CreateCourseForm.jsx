@@ -161,7 +161,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
               <ul>
                 {prerequisites && prerequisites.map(course => (
                   <li key={course.id} onClick={() => removePrerequisite(course)} className=" hover:bg-gray-100 hover:cursor-pointer rounded-lg">
-                    <div className="p-3 rounded-lg hover:bg-neutral-200">
+                    <div className="p-3 rounded-lg hover:bg-red-200">
                       {course.code + " | " + course.name}
                     </div>
                   </li>
