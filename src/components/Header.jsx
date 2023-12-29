@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { signOut } from '../firebase/authentication';
 import { auth } from '../config/firebase'; // Import the signOut function
 import NavBar from "./NavBar";
+import Cookies from "js-cookie";
+
 
 export default function Header() {
 	const [currentUser, setCurrentUser] = useState(null);
@@ -78,7 +80,9 @@ export default function Header() {
 							<svg fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
 						</button>
 						<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-40">
-							<li><Link to="/enrolment" className="h-10 p-3">My Enrolment</Link></li>
+							{Cookies.get("userRole") !== "Admin" && (
+								<li><Link to="/enrolment" className="h-10 p-3">My Enrolment</Link></li>
+							)}
 							{currentUser ? (
 								<li><button onClick={handleSignOut} className="h-10 p-3">Sign Out</button></li>
 							) : <li><Link to="/login" className="h-10 p-3">Login</Link></li>}
