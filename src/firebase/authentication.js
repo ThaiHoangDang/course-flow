@@ -12,8 +12,8 @@ export const signUp = async (email, password, role, name, program) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const uid = userCredential.user.uid;
     const userRef = doc(db, "users", uid);
-    await setDoc(userRef, { role, name, program });
-    return userCredential
+    await setDoc(userRef, {email: email, role: role, name: name, program_id: program, completed_courses: [], in_progress_courses: []});
+    return userCredential;
 };
 
 // Sign-in Function
