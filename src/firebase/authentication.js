@@ -76,3 +76,8 @@ export const ProtectedAdminRoute = () => {
 export const getCurrentUserRole = () => {
     return Cookies.get("userRole");
 };
+
+// Function to get the current user's role from the cookie
+export const getCurrentUserId = () => {
+    return Cookies.get("userID");
+};

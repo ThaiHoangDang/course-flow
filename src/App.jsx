@@ -27,14 +27,14 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/enrolment/:id" element={<Enrolment />} />
+          <Route path="/program/:id" element={<Program />} />
           {/* student pages */}
           <Route element={<ProtectedStudentRoute />}>
-            <Route path="/enrolment" element={<Enrolment />} />
             <Route path="/grade-calculator" element={<GradeCalculator />} />
           </Route>
           {/* admin pages */}
           <Route element={<ProtectedAdminRoute />}>
-            <Route path="/program/:id" element={<Program />} />
           </Route>
         </Routes>
       </BrowserRouter >

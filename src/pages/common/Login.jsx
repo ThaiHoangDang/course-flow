@@ -50,7 +50,7 @@ export default function Login() {
 							{/* Username Input */}
 							<div className="mb-4">
 								<label htmlFor="username" className="block text-gray-600">
-									Username
+									Email
 								</label>
 								<input
 									type="text"
