@@ -47,17 +47,46 @@ export default function Enrolment() {
 	return (
 		<div>
 			<Header />
-			<SubHeader name="My Enrolment" />
-      <div className="px-8 lg:px-32">
-        <div className="my-10 overflow-x-auto">
-          <div role="tablist" className="tabs tabs-lifted rounded-none">
-            <input defaultChecked type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Enrolment" />
-            <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
-              <EnrolmentTable user={user} />
+			<SubHeader name="Enrolment" />
+			<div className="px-8 lg:px-32 md:flex gap-5">
+        <div className="w-full md:max-w-min  my-10 mt-20">
+          <div className="sticky top-10 overflow-x-auto">
+            <div className="w-full">
+              <h1 className="text-xl p-4 bg-neutral-100 border ">User Information</h1>
             </div>
-            <input type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Academic History" />
-            <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
-              <InfoTable user={user} />
+            <table className="table border mb-10 ">
+              <tbody className="overflow-x-auto">
+                <tr>
+                  <td>Name</td>
+                  <td>{user && user["name"]}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{user && user["email"]}</td>
+                </tr>
+                <tr>
+                  <td>Program</td>
+                  <td>{user && user["program"]["name"]}</td>
+                </tr>
+                <tr>
+                  <td>GPA</td>
+                  <td>{user && gpaCalculator(user["my_program_map"])}/4.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="flex-1">
+          <div className="my-10 overflow-x-auto">
+            <div role="tablist" className="tabs tabs-lifted rounded-none">
+              <input defaultChecked type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Enrolment" />
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+                <EnrolmentTable user={user} />
+              </div>
+              <input type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Academic History" />
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+                <InfoTable user={user} />
+              </div>
             </div>
           </div>
         </div>
@@ -66,4 +95,37 @@ export default function Enrolment() {
 			<Footer />
 		</div>
 	);
+}
+
+function gpaCalculator(user_program_map) {
+  let credits = 0;
+  let courses = 0;
+  let total = 0;
+
+  user_program_map.forEach(courseMap => {
+
+    if (courseMap.status >= 0 && courseMap.status <= 100) {
+      if (credits === 0) {
+        credits = courseMap.course.credits;
+        courses += 1;
+        total += getGPAFromGrade(courseMap.status);
+      } else {
+        courses += courseMap.course.credits / credits;
+        total += courseMap.course.credits / credits * getGPAFromGrade(courseMap.status);
+      }
+    }
+  });
+
+  if (total === 0) return "?";
+
+  return (total / courses).toFixed(1);
+}
+
+function getGPAFromGrade(grade) {
+
+  if (grade >= 80) return 4;
+  if (grade >= 70) return 3;
+  if (grade >= 60) return 2;
+  if (grade >= 50) return 1;
+  return 0;
 }
