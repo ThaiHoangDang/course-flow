@@ -22,7 +22,7 @@ export default function ProgramHeader({program, code, name, current, past, total
           </div>
           
           <div className="stat">
-            <div className="stat-title">Total</div>
+            <div className="stat-title">Semesters</div>
             <div className="text-3xl font-bold my-3">{total ? total : "_"}</div>
           </div>
           

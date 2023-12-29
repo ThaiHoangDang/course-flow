@@ -8,41 +8,47 @@ export default function EnrolmentTable({ user }) {
             <th>Semester</th>
             <th>Course Code</th>
             <th>Course Name</th>
+            <th>Availability</th>
             <th>Status</th>
             <th>Grade</th>
           </tr>
         </thead>
         <tbody>
           {
-            user && user.program && user.program.program_map &&
-            user.program.program_map.map((courseMap) => (
-              <tr key={courseMap}>
+            user && user.program && user.my_program_map &&
+            user.my_program_map.map((courseMap, index) => (
+              <tr key={index}>
                 <td>{courseMap.semester}</td>
                 <td>{courseMap.course.code}</td>
                 <td>{courseMap.course.name}</td>
-                <td><span className="bg-green-300 py-1 px-3 rounded-full">Completed</span></td>
-                <td>90</td>
+                <td>{courseMap.course["status"] === true 
+                ? <span className="text-green-600">Opened</span>
+                : <span className="text-red-600">Closed</span>}
+                </td>
+                {
+                  courseMap.status >= 0 && courseMap.status <= 100 &&
+                  <>
+                    <td><span className="bg-green-200 py-[2px] px-3 rounded-full">Completed</span></td>
+                    <td>{courseMap.status}</td>
+                  </>
+                }
+                {
+                  courseMap.status === -2 &&
+                  <>
+                    <td><span className="bg-red-200 py-[2px] px-3 rounded-full">Pending</span></td>
+                    <td>_</td>
+                  </>
+                }
+                {
+                  courseMap.status === -1 &&
+                  <>
+                    <td><span className="bg-yellow-200 py-[2px] px-3 rounded-full">In Progress</span></td>
+                    <td>_</td>
+                  </>
+                }
               </tr>
             ))
           }
-          <tr>
-            <td>CS 246</td>
-            <td>Object Oriented Software Development</td>
-            <td><span className="bg-green-300 py-1 px-3 rounded-full">Completed</span></td>
-            <td>HD</td>
-          </tr>
-          <tr>
-            <td>CS 234</td>
-            <td>Data Structure and Algorithms</td>
-            <td><span className="bg-yellow-300 py-1 px-3 rounded-full">In Progress</span></td>
-            <td>_</td>
-          </tr>
-          <tr>
-            <td>CS 136</td>
-            <td>Final Project</td>
-            <td><span className="bg-blue-300 py-1 px-3 rounded-full">Opened</span></td>
-            <td>_</td>
-          </tr>
         </tbody>
       </table>
     </div>

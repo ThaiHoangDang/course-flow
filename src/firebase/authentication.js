@@ -2,6 +2,7 @@ import { auth } from "../config/firebase"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getProgram } from "./programs";
 import Cookies from "js-cookie";
 
 const SEVEN_DAYS_IN_SECONDS = 604800;
@@ -9,10 +10,15 @@ const db = getFirestore();
 
 // Sign-up Function
 export const signUp = async (email, password, role, name, program) => {
+
+    const programInfo = await getProgram(program);
+    const my_program_map = programInfo.program_map.map(courseMap => ({ ...courseMap, status: -2 }));    
+
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const uid = userCredential.user.uid;
     const userRef = doc(db, "users", uid);
-    await setDoc(userRef, {email: email, role: role, name: name, program_id: program, completed_courses: [], in_progress_courses: []});
+    // console.log({email: email, role: role, name: name, program_id: program, my_program_map: my_program_map});
+    await setDoc(userRef, {email: email, role: role, name: name, program_id: program, my_program_map: my_program_map});
     return userCredential;
 };
 

@@ -25,18 +25,18 @@ export default function Enrolment() {
 
       let programInfo = await getProgram(userInfo["program_id"]);
 
-      let program_map = await Promise.all(programInfo["program_map"].map(async (courseMap) => {
+      let my_program_map_info = await Promise.all(userInfo["my_program_map"].map(async (courseMap) => {
         const courseInfo = await getCourse(courseMap["course_id"]);
-        return {course: courseInfo, semester: courseMap.semester };
+        return {course: courseInfo, semester: courseMap.semester, status: courseMap.status };
       }));
 
-      program_map = program_map.slice().sort((a, b) => a.semester - b.semester);
-  
-      await delete programInfo["program_map"];
-      programInfo = { ...programInfo, program_map };
+      my_program_map_info = my_program_map_info.slice().sort((a, b) => a.semester - b.semester);
 
+      delete userInfo["my_program_map"];
       delete userInfo["program_id"];
-      userInfo = {...userInfo, program: programInfo};
+
+      userInfo = {...userInfo, my_program_map: my_program_map_info, program: programInfo};
+
       console.log(userInfo);
       setUser(userInfo);
     }

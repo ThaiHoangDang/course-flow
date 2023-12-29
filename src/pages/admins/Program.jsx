@@ -54,9 +54,6 @@ export default function Program() {
         program={program}
         code={program["code"]}
         name={program["name"]}
-        current="135"
-        past="1285"
-        total="1420"
       />
       <div className="px-8 lg:px-32 py-20">
         <div className="md:flex gap-5">
