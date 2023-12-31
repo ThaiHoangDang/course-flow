@@ -1,44 +1,34 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, CSSProperties } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import GoUp from "../../components/GoUp";
-import { HashLoader } from "react-spinners";
+import PreLoader from "../../components/PreLoader";
 
 export default function Homepage() {
-  const CSSProperties = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(true);
-    }, 8000);
-    setLoading(false);
-  }, {});
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
 
 
   return (
     <div>
       {
         loading ?
-          <HashLoader color={'#000000'}
-            loading={loading}
-            cssOverride={CSSProperties}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader" />
+          <PreLoader loading={loading} />
           : (
-            <>
+            <div className={`homepage-content ${loading ? 'fade-out' : 'fade-in'}`}>
               <Header />
               <div className="px-8 lg:px-32 bg-base-100">
                 <div className="md:min-h-screen flex">
-                  <div className="lg:flex gap-20 max-w-7xl m-auto">
-                    <div className="basis-5/12 my-20 lg:my-32">
+                  <div className="lg:flex gap-20 max-w-7xl mx-auto">
+                    <div className="basis-5/12 my-20 lg:my-36">
                       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                         Discover, Learn, Achieve: Your Course Awaits!
                       </h1>
@@ -51,7 +41,7 @@ export default function Homepage() {
                         <Link to="/courses-list">Explore Courses</Link>
                       </button>
                     </div>
-                    <div className="basis-7/12 my-20 lg:my-32">
+                    <div className="basis-7/12 my-20">
                       <img
                         src="https://images.unsplash.com/photo-1602734666440-b57ff6b304bd?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         className="object-cover rounded-md  shadow-2xl "
@@ -353,7 +343,7 @@ export default function Homepage() {
                   </li>
                 </ul>
               </div>
-              <div className="px-8 lg:px-32">
+              <div className="px-8 lg:px-32 my-20">
                 <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
                   <h1 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">
                     FAQ
@@ -526,7 +516,7 @@ export default function Homepage() {
               </div>
               <GoUp />
               <Footer />
-            </>
+            </div>
           )}
     </div>
 
