@@ -54,6 +54,7 @@ export default function Program() {
     <div>
       <Header />
       <ProgramHeader
+        code={program["code"]}
         program={program}
         students={students}
         name={program["name"]}
