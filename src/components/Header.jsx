@@ -41,7 +41,7 @@ export default function Header() {
 
 		// Filter through your courses based on the search term
 		const filtered = courses.filter(course =>
-			course.name.toLowerCase().includes(searchTerm.toLowerCase())
+			course.name.toLowerCase().includes(event.target.value.toLowerCase())
 		);
 
 		setFilteredCourses(filtered); // Update your filteredCourses state with the filtered courses
