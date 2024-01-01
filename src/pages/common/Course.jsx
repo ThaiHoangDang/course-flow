@@ -79,6 +79,17 @@ export default function Course() {
 								</div>
 							</div>
 						</div>
+						<div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
+							<input type="checkbox" className="peer" /> 
+							<h2 className="collapse-title text-xl">
+								Students list
+							</h2>
+							<div className="collapse-content bg-white border-t"> 
+								<div className="my-4">
+									
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
