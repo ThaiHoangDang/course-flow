@@ -28,8 +28,8 @@ export default function Homepage() {
               <Header />
               <div className="px-8 lg:px-32 bg-base-100">
                 <div className="md:min-h-screen flex">
-                  <div className="lg:flex gap-20 max-w-7xl mx-auto">
-                    <div className="basis-5/12 my-20 lg:my-36">
+                  <div className="lg:flex items-center gap-20 lg:pb-48 max-w-7xl mx-auto">
+                    <div className="basis-5/12 my-20">
                       <Reveal>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                           Discover, Learn, Achieve: Your Course Awaits!
