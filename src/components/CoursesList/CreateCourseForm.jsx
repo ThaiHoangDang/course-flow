@@ -182,7 +182,7 @@ export default function CreateCourseForm({ inputCourse = null }) {
 							</div>
 						)}
         </div>
-        {
+        {/* {
           inputCourse ?
           <div>
             <div onClick={()=>document.getElementById('my_modal_4').showModal()} className="mt-10 w-full text-red-500 bg-white hover:bg-red-600 border border-red-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Delete course</div>
@@ -200,8 +200,8 @@ export default function CreateCourseForm({ inputCourse = null }) {
             </dialog>
           </div>
           : null
-        }
-        <div onClick={inputCourse ? updateCourse : submit} className="mt-5 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
+        } */}
+        <div onClick={inputCourse ? updateCourse : submit} className="mt-10 w-full text-white bg-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800">Submit</div>
       </form>
     </div>
   );

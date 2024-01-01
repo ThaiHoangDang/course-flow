@@ -1,5 +1,5 @@
 import { db } from "../config/firebase";
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 export async function getUser(id) {
     const docRef = doc(db, "users", id);
@@ -11,6 +11,25 @@ export async function getUser(id) {
         console.log("No such document!");
         return null;
     }
+}
+
+export async function getAllUsersFromAProgram(id) {
+
+    const q = query(collection(db, "users"), where("program_id", "==", id));
+
+    const querySnapshot = await getDocs(q);
+    const users = [];
+
+    querySnapshot.forEach((doc) => {
+        const user = {
+            id: doc.id,
+            ...doc.data()
+        };
+
+        users.push(user);
+    });
+
+    return users;
 }
 
 export async function getAllUsers() {

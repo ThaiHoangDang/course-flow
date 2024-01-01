@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { getCurrentUserRole } from "../../firebase/authentication";
 import CreateCourseForm from "../CoursesList/CreateCourseForm";
 
-export default function CourseAbout({ course }) {
+export default function CourseAbout({ course, filterStudents, onFilterStudentsChange }) {
 
   return (
     <div className="border sticky top-10">
@@ -49,18 +49,30 @@ export default function CourseAbout({ course }) {
             </tr>
           </tbody>
         </table>
+        
         {
           getCurrentUserRole() === "Admin" ?
-            <div className="border-t px-5 py-5">
-              <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn btn-outline w-full">Edit course</button>
-              <dialog id="my_modal_3" className="modal">
-                <div className="modal-box max-h-[600px] no-scrollbar">
-                  <form method="dialog">
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                  </form>
-                  <CreateCourseForm inputCourse={course} />
-                </div>
-              </dialog>
+            <div>
+              <div className="p-5 border-t">
+                <input
+                  value={filterStudents}
+                  onChange={(e) => onFilterStudentsChange(e.target.value)}
+                  type="text"
+                  placeholder="Search students"
+                  className="input input-bordered w-full"
+                />
+              </div>
+              <div className="border-t px-5 py-5">
+                <button onClick={()=>document.getElementById('my_modal_3').showModal()} className="btn btn-outline w-full">Edit course</button>
+                <dialog id="my_modal_3" className="modal">
+                  <div className="modal-box max-h-[600px] no-scrollbar">
+                    <form method="dialog">
+                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <CreateCourseForm inputCourse={course} />
+                  </div>
+                </dialog>
+              </div>
             </div>
           : null
         }

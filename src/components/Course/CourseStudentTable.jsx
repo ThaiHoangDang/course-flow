@@ -1,8 +1,6 @@
+export default function CourseStudentTable({ students, filterStudents}) {
 
-export default function StudentsTable({students, filterStudents}) {
   return (
-    
-
     <div className="overflow-x-auto bg-base-100 border-1">
       <table className="table table-zebra">
         <thead className="shadow-sm font-bold">
@@ -13,7 +11,7 @@ export default function StudentsTable({students, filterStudents}) {
           </tr>
         </thead>
         <tbody>
-          {students && students.map((student, index) => {
+        {students && students.map((student, index) => {
             if (filterStudents !== "" && (! student["email"].toLowerCase().includes(filterStudents.toLowerCase())) && (! student["name"].toLowerCase().includes(filterStudents.toLowerCase()))) return null;
             return (
               <tr key={student["email"]}>
@@ -26,5 +24,6 @@ export default function StudentsTable({students, filterStudents}) {
         </tbody>
       </table>
     </div>
+
   );
 }

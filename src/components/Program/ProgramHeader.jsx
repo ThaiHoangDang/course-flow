@@ -1,4 +1,4 @@
-export default function ProgramHeader({program, code, name, current, past, total}) {
+export default function ProgramHeader({program, code, name, students}) {
 
   return (
     <div className="bg-base-200 shadow-inner">
@@ -13,7 +13,7 @@ export default function ProgramHeader({program, code, name, current, past, total
     
           <div className="stat">
             <div className="stat-title">Students</div>
-            <div className="text-3xl font-bold my-3">{current ? current : "_"}</div>
+            <div className="text-3xl font-bold my-3">{students ? students.length : "0"}</div>
           </div>
 
           <div className="stat">
@@ -22,8 +22,8 @@ export default function ProgramHeader({program, code, name, current, past, total
           </div>
           
           <div className="stat">
-            <div className="stat-title">Total</div>
-            <div className="text-3xl font-bold my-3">{total ? total : "_"}</div>
+            <div className="stat-title">Semesters</div>
+            <div className="text-3xl font-bold my-3">{program["program_map"] ? program["program_map"][program["program_map"].length - 1]["semester"] : "0"}</div>
           </div>
           
         </div>

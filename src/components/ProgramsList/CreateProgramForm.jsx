@@ -76,6 +76,11 @@ export default function CreateProgramForm({ inputProgram = null }) {
       return;
     }
 
+    if (programMap.length === 0) {
+      alert("Missing courses for program");
+      return;
+    }
+
     const programMapIds = programMap.map(courseMap => ({ course_id: courseMap.course.id, semester: courseMap.semester }));
 
     const newProgram = {

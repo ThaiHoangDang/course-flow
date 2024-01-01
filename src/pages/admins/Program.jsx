@@ -10,11 +10,11 @@ import ProgramAbout from "../../components/Program/ProgramAbout";
 
 import { getProgram } from "../../firebase/programs";
 import { getCourse } from "../../firebase/courses";
-
-import { students } from "../../assets/tempData/students";
+import { getAllUsersFromAProgram } from "../../firebase/users";
 
 
 export default function Program() {
+  const [students, setStudents] = useState([]);
   const [program, setProgram] = useState(Object);
   const [filterCourses, setFilterCourses] = useState("");
   const [filterStudents, setFilterStudents] = useState("");
@@ -29,6 +29,9 @@ export default function Program() {
         navigate(`/404`);
         return; // Make sure to return here to avoid executing the rest of the code
       }
+
+      const studentsList = await getAllUsersFromAProgram(programInfo.id);
+      setStudents(studentsList);
   
       let program_map = await Promise.all(programInfo["program_map"].map(async (courseMap) => {
         const courseInfo = await getCourse(courseMap["course_id"]);
@@ -50,12 +53,10 @@ export default function Program() {
     <div>
       <Header />
       <ProgramHeader
-        program={program}
         code={program["code"]}
+        program={program}
+        students={students}
         name={program["name"]}
-        current="135"
-        past="1285"
-        total="1420"
       />
       <div className="px-8 lg:px-32 py-20">
         <div className="md:flex gap-5">

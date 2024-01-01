@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { getCurrentUserRole } from "../firebase/authentication";
+import { getCurrentUserRole, getCurrentUserId } from "../firebase/authentication";
 import { getAllCourses } from '../firebase/courses'; // Import your backend service
 import { Link } from "react-router-dom";
 import { signOut } from '../firebase/authentication';
@@ -41,7 +41,7 @@ export default function Header() {
 
 		// Filter through your courses based on the search term
 		const filtered = courses.filter(course =>
-			course.name.toLowerCase().includes(searchTerm.toLowerCase())
+			course.name.toLowerCase().includes(event.target.value.toLowerCase())
 		);
 
 		setFilteredCourses(filtered); // Update your filteredCourses state with the filtered courses
@@ -89,7 +89,7 @@ export default function Header() {
 						<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-40">
 							{
 								getCurrentUserRole() === "Student" ?
-									<li><Link to="/enrolment" className="h-10 p-3">My Enrolment</Link></li> : null
+									<li><Link to={`/enrolment/${getCurrentUserId()}`} className="h-10 p-3">My Enrolment</Link></li> : null
 							}
 							{currentUser ? (
 								<li><button onClick={handleSignOut} className="h-10 p-3">Sign Out</button></li>
