@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
 export default function EnrolmentTable({ user, myProgramMapHolder }) {
@@ -51,11 +51,16 @@ export default function EnrolmentTable({ user, myProgramMapHolder }) {
       return courseMap;
     });
 
+    // update user
     const userRef = doc(db, "users", user.id);
-
-    // Set the "capital" field of the city 'DC'
     await updateDoc(userRef, {
       my_program_map: updatedProgramMap
+    });
+
+    // update course
+    const courseRef = doc(db, "course", course.id);
+    await updateDoc(courseRef, {
+        students: arrayUnion(user.id)
     });
 
     window.location.reload();

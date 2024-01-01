@@ -1,4 +1,4 @@
-export default function CourseStudentTable() {
+export default function CourseStudentTable({ students, filterStudents}) {
 
   return (
     <div className="overflow-x-auto bg-base-100 border-1">
@@ -11,8 +11,8 @@ export default function CourseStudentTable() {
           </tr>
         </thead>
         <tbody>
-          {/* {students.map((student, index) => {
-            if (filterStudents !== "" && (! student["sid"].toLowerCase().includes(filterStudents.toLowerCase())) && (! student["name"].toLowerCase().includes(filterStudents.toLowerCase()))) return null;
+        {students && students.map((student, index) => {
+            if (filterStudents !== "" && (! student["email"].toLowerCase().includes(filterStudents.toLowerCase())) && (! student["name"].toLowerCase().includes(filterStudents.toLowerCase()))) return null;
             return (
               <tr key={student["email"]}>
                 <td>{index + 1}</td>
@@ -20,7 +20,7 @@ export default function CourseStudentTable() {
                 <td>{student["email"]}</td>
               </tr>
             );
-          })} */}
+          })}
         </tbody>
       </table>
     </div>
