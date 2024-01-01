@@ -12,7 +12,7 @@ export default function Homepage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -64,7 +64,7 @@ export default function Homepage() {
                   <p className="py-6">Everything you need.</p>
                   <div className="flex flex-col items-center justify-center lg:flex-row gap-10 mb-28">
                     <div className="card w-8/12 lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
-                      <Reveal>
+                      {/* <Reveal> */}
                         <figure>
                           <img
                             src={require("../../assets/images/feature1.avif")}
@@ -79,11 +79,11 @@ export default function Homepage() {
                             informed decision-making.
                           </p>
                         </div>
-                      </Reveal>
+                      {/* </Reveal> */}
                     </div>
 
                     <div className="card w-8/12 lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
-                      <Reveal>
+                      {/* <Reveal> */}
                         <div className="card-body">
                           <h2 className="card-title">Feedback Mechanism</h2>
                           <p>
@@ -98,10 +98,10 @@ export default function Homepage() {
                             alt="Shoes"
                           />
                         </figure>
-                      </Reveal>
+                      {/* </Reveal> */}
                     </div>
                     <div className="card w-8/12 lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
-                      <Reveal>
+                      {/* <Reveal> */}
 
                         <figure>
                           <img
@@ -117,10 +117,10 @@ export default function Homepage() {
                             efficiently.
                           </p>
                         </div>
-                      </Reveal>
+                      {/* </Reveal> */}
                     </div>
                     <div className="card w-8/12 lg:w-3/12 bg-base-100 shadow-xl rounded-3xl">
-                      <Reveal>
+                      {/* <Reveal> */}
                         <div className="card-body">
                           <h2 className="card-title">Course Management Tools</h2>
                           <p>
@@ -134,12 +134,12 @@ export default function Homepage() {
                             alt="Shoes"
                           />
                         </figure>
-                      </Reveal>
+                      {/* </Reveal> */}
                     </div>
                   </div>
                 </div>
               </div>
-              <Reveal>
+              {/* <Reveal> */}
                 <div className="overflow-hidden bg-white py-24 sm:py-32 px-8 lg:px-32">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -218,7 +218,7 @@ export default function Homepage() {
                           </dl>
                         </div>
                       </div>
-                      <Reveal>
+                      {/* <Reveal> */}
                         <img
                           src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                           alt="Product screenshot"
@@ -226,11 +226,11 @@ export default function Homepage() {
                           width="2432"
                           height="1442"
                         />
-                      </Reveal>
+                      {/* </Reveal> */}
                     </div>
                   </div>
                 </div>
-              </Reveal>
+              {/* </Reveal> */}
               <Reveal>
                 <div className="px-8 lg:px-32">
                   <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
