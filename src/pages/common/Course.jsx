@@ -148,21 +148,26 @@ export default function Course() {
 									</h2>
 									<div className="collapse-content bg-white border-t"> 
 										<div className="my-4">
-											<CourseStudentTable students={course["students"]} filterStudents={filterStudents} grades={grades} onGradesChange={setGrades}/>
 											{
 												course["students"] && course["students"].length > 0 ?
-												<div className="w-full flex">
-													<button className="btn btn-outline px-10 mt-4 mx-auto" onClick={() => document.getElementById("my_modal").showModal()}>End course</button>
-                      		<dialog id="my_modal" className="modal">
-														<div className="modal-box max-h-[600px] no-scrollbar">
-															<form method="dialog">
-																<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-															</form>
-															<p>Do you want to end this course?</p>
-															<button className="btn btn-outline px-10 mt-4 w-full" onClick={completeCourse}>End course</button>
-														</div>
-													</dialog>
-												</div> : null
+												<div>
+													<CourseStudentTable students={course["students"]} filterStudents={filterStudents} grades={grades} onGradesChange={setGrades}/>
+													<div className="w-full flex">
+														<button className="btn btn-outline px-10 mt-4 mx-auto" onClick={() => document.getElementById("my_modal").showModal()}>End course</button>
+														<dialog id="my_modal" className="modal">
+															<div className="modal-box max-h-[600px] no-scrollbar">
+																<form method="dialog">
+																	<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+																</form>
+																<p>Do you want to end this course?</p>
+																<button className="btn btn-outline px-10 mt-4 w-full" onClick={completeCourse}>End course</button>
+															</div>
+														</dialog>
+													</div> 
+												</div> :
+												<div>
+													There are no students for this course
+												</div>
 											}
 										</div>
 									</div>

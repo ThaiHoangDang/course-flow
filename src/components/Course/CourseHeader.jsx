@@ -23,7 +23,7 @@ export default function CourseHeader({course}) {
           
           <div className="stat">
             <div className="stat-title mb-3">Students</div>
-            <div className="text-3xl font-bold">{course["students"] ? course["students"].length : "_"}</div>
+            <div className="text-3xl font-bold">{course["students"] ? course["students"].length : "0"}</div>
           </div>
           
         </div>
