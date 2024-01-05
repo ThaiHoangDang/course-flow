@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import CourseHeader from "../../components/Course/CourseHeader";
@@ -14,6 +17,7 @@ import { getCurrentUserRole } from "../../firebase/authentication";
 export default function Course() {
 	const [course, setCourse] = useState(Object);
 	const [filterStudents, setFilterStudents] = useState("");
+	const [grades, setGrades] = useState([]);
 	const { id } = useParams();
 	const navigate = useNavigate();
 
@@ -48,13 +52,50 @@ export default function Course() {
 					})
 				);
 				courseInfo["students"] = learnersData.filter((student) => student !== null);
+				setGrades(new Array(courseInfo["students"].length).fill(-1));
 			}
-
       setCourse(courseInfo);
     }
 
     fetchCourse();
   }, [id, navigate]);
+
+	async function completeCourse() {
+		if (grades.includes(-1) || grades.includes(NaN)) {
+			alert("Missing student grade!");
+			return;
+		}
+
+		if (grades.some((grade) => grade < 0 || grade > 100)) {
+			alert("Invalid grade detected (should be between 0 and 100)!");
+			return;
+		}
+
+		await Promise.all(
+			course["students"].map(async (student, index) => {
+				const updated_program_map = student.my_program_map.map((courseMap) => {
+
+					if (courseMap.course_id === id) {
+						courseMap.status = grades[index] >= 50 ? grades[index] : -2;
+					}
+
+					return courseMap;
+				});
+
+				const studentRef = doc(db, "users", student.id);
+				await updateDoc(studentRef, {
+					my_program_map: updated_program_map
+				});
+			})
+		);
+
+		const courseRef = doc(db, "course", course.id);
+		await updateDoc(courseRef, {
+			students: []
+		});
+
+		window.location.reload();
+	}
 
 	return (
 		<div>
@@ -107,7 +148,27 @@ export default function Course() {
 									</h2>
 									<div className="collapse-content bg-white border-t"> 
 										<div className="my-4">
-											<CourseStudentTable students={course["students"]} filterStudents={filterStudents} />
+											{
+												course["students"] && course["students"].length > 0 ?
+												<div>
+													<CourseStudentTable students={course["students"]} filterStudents={filterStudents} grades={grades} onGradesChange={setGrades}/>
+													<div className="w-full flex">
+														<button className="btn btn-outline px-10 mt-4 mx-auto" onClick={() => document.getElementById("my_modal").showModal()}>End course</button>
+														<dialog id="my_modal" className="modal">
+															<div className="modal-box max-h-[600px] no-scrollbar">
+																<form method="dialog">
+																	<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+																</form>
+																<p>Do you want to end this course?</p>
+																<button className="btn btn-outline px-10 mt-4 w-full" onClick={completeCourse}>End course</button>
+															</div>
+														</dialog>
+													</div> 
+												</div> :
+												<div>
+													There are no students for this course
+												</div>
+											}
 										</div>
 									</div>
 								</div>

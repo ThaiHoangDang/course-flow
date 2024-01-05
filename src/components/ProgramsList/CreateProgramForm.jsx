@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 
 import { db } from "../../config/firebase";
-import { collection, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { getAllCourses } from "../../firebase/courses";
 
 
@@ -17,7 +16,7 @@ export default function CreateProgramForm({ inputProgram = null }) {
 
   const [searchCourse, setSearchCourse] = useState("");
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCourses() {
@@ -116,10 +115,10 @@ export default function CreateProgramForm({ inputProgram = null }) {
     window.location.reload();
   }
 
-  async function deleteProgram() {
-    // await deleteDoc(doc(db, "course", inputProgram["id"]));
-    // navigate('/courses-list');
-  }
+  // async function deleteProgram() {
+  //   // await deleteDoc(doc(db, "course", inputProgram["id"]));
+  //   // navigate('/courses-list');
+  // }
 
   return (
     <div className="my-8 mx-2">
