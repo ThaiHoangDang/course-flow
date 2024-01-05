@@ -44,7 +44,7 @@ export default function Enrolment() {
     }
 
     fetchUser(id);
-  }, []);
+  }, [id, navigate]);
 
 	return (
 		<div>
