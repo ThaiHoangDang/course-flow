@@ -1,11 +1,13 @@
+import banner from "../../assets/images/banner3.png";
+
 export default function ProgramHeader({program, code, name, students}) {
 
   return (
-    <div className="bg-base-200 shadow-inner">
+    <div className="bg-base-200 shadow-inner bg-cover bg-no-repeat bg-blend-multiply" style={{ backgroundImage: `url(${banner})` }}>
       <div className="text-center px-8 lg:px-32 p-10 flex flex-wrap justify-center items-center">
         <div>
-          <h1 className="w-full text-xl md:text-2xl text-neutral-500 mb-2">{code}</h1>
-          <h1 className="text-3xl md:text-4xl">{name}</h1>
+          <h1 className="w-full text-xl md:text-2xl text-neutral-300 mb-2">{code}</h1>
+          <h1 className="text-3xl text-white md:text-4xl">{name}</h1>
         </div>
       </div>
       <div className="px-8 lg:px-32 pb-10 border-b">

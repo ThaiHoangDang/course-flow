@@ -12,6 +12,8 @@ import { getProgram } from "../../firebase/programs";
 import { getCourse } from "../../firebase/courses";
 import { getAllUsersFromAProgram } from "../../firebase/users";
 
+import { getCurrentUserRole } from "../../firebase/authentication";
+
 
 export default function Program() {
   const [students, setStudents] = useState([]);
@@ -79,15 +81,18 @@ export default function Program() {
                 </div>
               </div>
             </div>
-            <div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
-              <input type="checkbox" className="peer" />
-              <h2 className="collapse-title text-xl">Students list</h2>
-              <div className="collapse-content bg-white border-t">
-                <div className="my-4">
-                  <StudentTable students={students} filterStudents={filterStudents} />
-                </div>
-              </div>
-            </div>
+            {
+              getCurrentUserRole() === "Admin" ?
+                <div className="collapse collapse-arrow bg-base-200 border mt-2 rounded-none">
+                  <input type="checkbox" className="peer" />
+                  <h2 className="collapse-title text-xl">Students list</h2>
+                  <div className="collapse-content bg-white border-t">
+                    <div className="my-4">
+                      <StudentTable students={students} filterStudents={filterStudents} />
+                    </div>
+                  </div>
+                </div> : null
+            }
           </div>
         </div>
       </div>
