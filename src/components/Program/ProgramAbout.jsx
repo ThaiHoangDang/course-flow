@@ -8,7 +8,7 @@ export default function ProgramAbout({ program, filterStudents, onFilterStudents
       <div className="h-16 bg-base-200 border-b">
         <h2 className="text-xl p-5">Search</h2>
       </div>
-      <div className="p-4 pb-0 border-t">
+      <div className="p-4 pb-4 border-t">
         <input
           value={filterCourses}
           onChange={(e) => onFilterCoursesChange(e.target.value)}
@@ -17,15 +17,18 @@ export default function ProgramAbout({ program, filterStudents, onFilterStudents
           className="input input-bordered w-full"
         />
       </div>
-      <div className="p-4">
-        <input
-          value={filterStudents}
-          onChange={(e) => onFilterStudentsChange(e.target.value)}
-          type="text"
-          placeholder="Search students"
-          className="input input-bordered w-full"
-        />
-      </div>
+      {
+        getCurrentUserRole() === "Admin" ?
+          <div className="p-4 pt-0">
+            <input
+              value={filterStudents}
+              onChange={(e) => onFilterStudentsChange(e.target.value)}
+              type="text"
+              placeholder="Search students"
+              className="input input-bordered w-full"
+            />
+          </div> : null
+      }
       <div className="overflow-x-auto">
         {
           getCurrentUserRole() === "Admin" ?
