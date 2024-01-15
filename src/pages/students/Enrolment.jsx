@@ -95,7 +95,7 @@ export default function Enrolment() {
                 <InfoTable user={user} />
               </div>
               <input type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Grade Calculator" />
-              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6 overflow-x-auto no-scrollbar">
                 <GradeCalculator />
               </div>
             </div>
