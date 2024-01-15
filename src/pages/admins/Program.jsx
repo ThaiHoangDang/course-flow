@@ -7,6 +7,7 @@ import ProgramHeader from "../../components/Program/ProgramHeader";
 import ProgramCoursesTable from "../../components/Program/ProgramCoursesTable";
 import StudentTable from "../../components/StudentsTable";
 import ProgramAbout from "../../components/Program/ProgramAbout";
+import PreLoader from "../../components/PreLoader";
 
 import { getProgram } from "../../firebase/programs";
 import { getCourse } from "../../firebase/courses";
@@ -20,6 +21,7 @@ export default function Program() {
   const [program, setProgram] = useState(Object);
   const [filterCourses, setFilterCourses] = useState("");
   const [filterStudents, setFilterStudents] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -46,13 +48,15 @@ export default function Program() {
       programInfo = { ...programInfo, program_map };
 
       setProgram(programInfo);
+      setLoading(false);
     }
   
     fetchProgram();
   }, [id, navigate]);
 
   return (
-    <div>
+    loading ? <PreLoader loading={loading} /> :
+    <div className={`${loading ? 'fade-out' : 'fade-in'}`}>
       <Header />
       <ProgramHeader
         code={program["code"]}

@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import CourseHeader from "../../components/Course/CourseHeader";
 import CourseAbout from "../../components/Course/CourseAbout";
 import CourseStudentTable from "../../components/Course/CourseStudentTable";
+import PreLoader from "../../components/PreLoader";
 import { getCourse } from "../../firebase/courses";
 import { getUser } from "../../firebase/users";
 
@@ -18,6 +19,7 @@ export default function Course() {
 	const [course, setCourse] = useState(Object);
 	const [filterStudents, setFilterStudents] = useState("");
 	const [grades, setGrades] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const { id } = useParams();
 	const navigate = useNavigate();
 
@@ -55,6 +57,7 @@ export default function Course() {
 				setGrades(new Array(courseInfo["students"].length).fill(-1));
 			}
       setCourse(courseInfo);
+			setLoading(false);
     }
 
     fetchCourse();
@@ -98,7 +101,8 @@ export default function Course() {
 	}
 
 	return (
-		<div>
+		loading ? <PreLoader loading={loading} /> :
+		<div className={`${loading ? 'fade-out' : 'fade-in'}`}>
 			<Header />
 			<CourseHeader course={course} />
 			<div className="px-8 lg:px-32 py-20">

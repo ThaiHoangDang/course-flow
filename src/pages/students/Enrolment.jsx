@@ -7,6 +7,7 @@ import SubHeader from "../../components/SubHeader";
 import InfoTable from "../../components/Enrolment/InfoTable";
 import EnrolmentTable from "../../components/Enrolment/EnrolmentTable";
 import GoUp from "../../components/GoUp";
+import PreLoader from "../../components/PreLoader";
 
 import { getUser } from "../../firebase/users";
 import { getProgram } from "../../firebase/programs"
@@ -18,6 +19,7 @@ export default function Enrolment() {
 	const { id } = useParams();
   const [user, setUser] = useState(null);
   const [myProgramMapHolder, setMyProgramMapHolder] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchUser(id) {
@@ -41,13 +43,15 @@ export default function Enrolment() {
 
       console.log(userInfo);
       setUser(userInfo);
+      setLoading(false);
     }
 
     fetchUser(id);
   }, [id, navigate]);
 
 	return (
-		<div>
+    loading ? <PreLoader loading={loading} /> : 
+		<div className={`${loading ? 'fade-out' : 'fade-in'}`}>
 			<Header />
 			<SubHeader name="Enrolment" />
 			<div className="px-8 lg:px-32 md:flex gap-5">
