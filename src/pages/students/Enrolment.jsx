@@ -8,6 +8,7 @@ import InfoTable from "../../components/Enrolment/InfoTable";
 import EnrolmentTable from "../../components/Enrolment/EnrolmentTable";
 import GoUp from "../../components/GoUp";
 import PreLoader from "../../components/PreLoader";
+import GradeCalculator from "../../components/Enrolment/GradeCalculator";
 
 import { getUser } from "../../firebase/users";
 import { getProgram } from "../../firebase/programs"
@@ -86,12 +87,16 @@ export default function Enrolment() {
           <div className="my-10 overflow-x-auto">
             <div role="tablist" className="tabs tabs-lifted rounded-none">
               <input defaultChecked type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Enrolment" />
-              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6 overflow-x-auto">
                 <EnrolmentTable user={user} myProgramMapHolder={myProgramMapHolder}/>
               </div>
               <input type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Academic History" />
-              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6 overflow-x-auto">
                 <InfoTable user={user} />
+              </div>
+              <input type="radio" name="course_tab" role="tab" className="tab h-10 min-w-max" aria-label="Grade Calculator" />
+              <div role="tabpanel" className="tab-content bg-base-100 border-base-300 p-6">
+                <GradeCalculator />
               </div>
             </div>
           </div>
