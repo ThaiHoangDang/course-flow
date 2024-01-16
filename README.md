@@ -5,7 +5,7 @@
 
 ## I. Links
 - Website: https://courseflow.id.vn
-- GitHub: https://github.com/ThaiHoangDang/course-flowcourse-flow
+- GitHub: https://github.com/ThaiHoangDang/course-flow
 
 ## II. Description
 Nowadays, even though numerous schools around the world have applied online course management systems, the number of universities that use offline and traditional ways is still considerable. Consequently, students in those schools might experience unwanted difficulties during the process of enrolling and managing courses. In addition, some existing online systems show unprofessionalism in design, causing even more problems for students than the traditional way. 
